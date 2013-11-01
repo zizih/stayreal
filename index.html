@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Stayreal by zizih</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/lib/require.js"></script>
+    <script src="js/app.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -20,10 +20,7 @@
   <body>
       <div id="header">
         <nav>
-          <li class="fork"><a href="https://github.com/zizih/stayreal">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/zizih/stayreal/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/zizih/stayreal/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
+          <li class="about"><a href="#about">about</a></li>
         </nav>
       </div><!-- end header -->
 
@@ -31,26 +28,31 @@
 
       <section>
         <div id="title">
-          <h1>Stayreal</h1>
-          <p>keep going in my technology life.</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/zizih">zizih</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+          <h1>Stay Real</h1>
+          <p>一直在 。。。 </p>
         </div>
 
-        <p>test..</p>
+		<div class="content">
+          <input type="text" placeholder="Server IP" name="server-ip">
+          <input type="text" placeholder="Server Port" name="server-port">
+        </div>
       </section>
-
+    </div>
+    
+    <div class="footer">
+      <div class="credits">
+        <span class="right">maintained by &mdash; <a href="https://github.com/zizih">hezi</a></span>
+      </div>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
+          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
           <script type="text/javascript">
             try {
               var pageTracker = _gat._getTracker("stay real byhezi");
-            pageTracker._trackPageview();
+              pageTracker._trackPageview();
             } catch(err) {}
           </script>
 
