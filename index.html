@@ -6,6 +6,7 @@
     <title>struggle, stayreal</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/about.css">
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/underscore.js"></script>
     <script src="js/lib/backbone.js"></script>
@@ -13,6 +14,7 @@
     <script src="js/Router.js"></script>
     <script src="js/Model.js"></script>
     <script src="js/View.js"></script>
+    <script src="js/lib/carousel.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -25,16 +27,17 @@
   <body>
       <div id="header">
         <nav>
-          <li class="about"><a href="#about">about</a></li>
+          <li><a href="#about" id="header-nav-item0">about</a></li>
         </nav>
       </div><!-- end header -->
 
     <div class="wrapper">
-
+      
+      <!--    index page    -->
       <section id="page-index">
         <div id="title">
           <h1>Stay Real</h1>
-          <p>一直在 。。。 </p>
+          <p>一直有 。。。 </p>
         </div>
 		    <div class="content">
 		      <div class="input">
@@ -49,6 +52,54 @@
           <a class="arrow-rigt" href="javascript:void(0)">&gt;&gt;</a>
         </script>
       </section>
+      
+      <!--    about page    -->
+      <section id="page-about">
+        <div id="title">
+          <h1>My Works</h1>
+          <p>一直没。。。</p>
+        </div>
+        <div class="content">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myworks" data-slide-to="0" class="active"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="./images/test01.jpg" alt="...">
+                <div class="carousel-caption">
+                  title01...
+                </div>
+              </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myworks" data-slide="prev">
+              <span>&lt;</span>
+            </a>
+            <a class="right carousel-control" href="#myworks" data-slide="next">
+              <span>&gt;</span>
+            </a>
+          </div>
+        </div>
+        <script type="text/template" id="works-item-template">
+          <% for(i in works) { %>
+            <div class="item <%= works[i].isFirst ? 'active' : '' %>">
+              <img src="<%= works[i].imgUrl %>" alt="<%= works[i].imgAlt || '' %>"/>
+              <div class="carousel-caption">
+                <%= works[i].caption || '' %>
+              </div>
+            </div>     
+          <% } %>    
+        </script>
+        <script type="text/template" id="works-indicator-template">
+          <% for( i=0; i<len; i++) {%>
+           <li data-target="#myworks" data-slide-to="<%= i %>" <%= i === 0 ? 'class=\"active\"' : '' %> ></li>
+           <% } %>       
+        </script>
+      </section>
+      
     </div>
     
     <div class="footer">
@@ -61,8 +112,6 @@
         <%= firstContent %>
       </div>
     </script>
-    
-    
     <script type="text/javascript">
       app.init();
       Backbone.history.start();

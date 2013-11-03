@@ -1,24 +1,23 @@
 app.View = function() {
+  
+  
 
   var IndexView = Backbone.View.extend({
 
     el: $('#page-index'),
-
     events: {
       'keyup input': 'unedit'
     },
-
     initialize: function() {
     },
-
-    template: _.template($('#server-show-template').html()),
-
+    template: {
+      server: _.template($('#server-show-template').html())
+    },
     render: function() {
       this.$el.val(this.model.inputModel.get('editing'));
       this.$el.toggleClass('editing', this.model.inputModel.edit());
       return this;
     },
-
     unedit: function(e) {
       var $target = $(e.currentTarget);
       if (!$target.val()) {
@@ -27,6 +26,7 @@ app.View = function() {
       } else {
         $target.addClass('has-input');
         var msg = new RegExp('[^0-9]').test($target.val());
+        //do not have correct input && show err alert
         if(msg && $target.attr('ctype') === 'number') {
           $target.val($target.val().replace(/[^0-9]/g, ''));
           var alert = new AlertView({
@@ -45,14 +45,49 @@ app.View = function() {
       if(this.model.serverModel.ifNull()) {
         $('#server-show').html($('#server-show').attr('data-default'));
       } else {
-        $('#server-show').html(this.template(this.model.serverModel.toJSON()));        
+        $('#server-show').html(this.template.server(this.model.serverModel.toJSON()));        
       }
     },
     show: function () {
       this.$el.show();
+      //modify nav item
+      var item0 = $('#header-nav-item0');
+      item0.html('about');
+      item0.attr('href', '#about');
+      return this;
     },
     hide: function () {
       this.$el.hide();
+    }
+  });
+  
+  var AboutView = Backbone.View.extend({
+    
+    el: $('#page-about'),
+    initialize: function () {
+      $('.carousel').carousel({
+        interval: 10000
+      })
+    },
+    events: {
+    },
+    template: {
+      works: _.template($('#works-item-template').html()),
+      indicators: _.template($('#works-indicator-template').html())
+    }, 
+    render: function () {
+      $('.carousel-inner').html(this.template.works(this.model.toJSON()));
+      $('.carousel-indicators').html(this.template.indicators({
+        len: this.model.getSize()
+      }));
+      this.$el.show();
+    },
+    show: function () {
+      var item0 = $('#header-nav-item0');
+      item0.html('主页');
+      item0.attr('href', '#index');
+      this.render();
+      return this;
     }
   });
 
@@ -83,7 +118,8 @@ app.View = function() {
   });
 
   return {
-    IndexView : IndexView
+    IndexView: IndexView,
+    AboutView: AboutView
   }
 
 }

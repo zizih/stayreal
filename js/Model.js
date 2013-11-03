@@ -11,13 +11,13 @@ app.Model = function () {
       },
       initialize: function () {
       }, 
-      getIp: function () {
+      getIp: function() {
         return this.get('ip');
       },
-      getPort: function () {
+      getPort: function() {
         return this.get('port');
       },
-      ifNull: function () {
+      ifNull: function() {
         return this.get('ip') === app.config.defaultIp 
                && this.get('port') === app.config.defaultPort;
       }
@@ -30,18 +30,21 @@ app.Model = function () {
           editing: false
         }
       },
-      initialize: function () {
+      initialize: function() {
       }, 
-      edit: function () {
+      edit: function() {
         return this.get('edting');
       }
     }),
     
-    DomModel: Backbone.Model.extend({
+    WorksModel: Backbone.Model.extend({
       defaults: function() {
         return {
-          
+          works: []
         }
+      },
+      getSize: function () {
+        return this.get('works').length;
       }
     })
     
