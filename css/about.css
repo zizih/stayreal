@@ -136,6 +136,7 @@
  *   add by copy && not from bootstrap.css
  */
 .carousel-indicators {
+  display: none;
   position: absolute;
   bottom: -10%;
   left: 50%;

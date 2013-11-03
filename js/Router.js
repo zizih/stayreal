@@ -23,15 +23,20 @@ app.Router = Backbone.Router.extend({
         works: [
             {
               isFirst: true,
-              imgUrl: './images/test01.jpg',
+              imgUrl: './images/codejam01.JPG',
               imgAlt: '0',
               caption: '0'
             },
             {
-              imgUrl: './images/test02.jpg',
+              imgUrl: './images/codejam02.JPG',
               imgAlt: '1',
               caption: '1'
-            }
+            },
+            {
+              imgUrl: './images/codejam03.JPG',
+              imgAlt: '2',
+              caption: '2'
+            },
           ]
       })
     }).show();

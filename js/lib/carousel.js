@@ -201,7 +201,6 @@
     $target.carousel(options)
 
     if (slideIndex = $this.attr('data-slide-to')) {
-      console.log($target.data('bs.carousel'));
       $target.data('bs.carousel').to(slideIndex)
     }
 

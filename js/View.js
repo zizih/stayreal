@@ -79,7 +79,7 @@ app.View = function() {
       $('.carousel-inner').html(this.template.works(this.model.toJSON()));
       $('.carousel-indicators').html(this.template.indicators({
         len: this.model.getSize()
-      }));
+      })).show();
       this.$el.show();
     },
     show: function () {
