@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Stayreal by zizih</title>
+    <title>struggle, stayreal</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/lib/require.js"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/Router.js"></script>
+    <script src="js/Model.js"></script>
+    <script src="js/View.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -26,35 +31,41 @@
 
     <div class="wrapper">
 
-      <section>
+      <section id="page-index">
         <div id="title">
           <h1>Stay Real</h1>
           <p>一直在 。。。 </p>
         </div>
-
-		<div class="content">
-          <input type="text" placeholder="Server IP" name="server-ip">
-          <input type="text" placeholder="Server Port" name="server-port">
+		    <div class="content">
+		      <div class="input">
+            <input placeholder="Server IP or 127.0.0.1" id="server-ip" name="ip" data-default-ip="127.0.0.1">
+            <input placeholder="Server Port Or 9600" id="server-port" name="port" ctype="number" data-default-port="9600">
+          </div>
+          <p class="font-gray">服务器地址&nbsp;&nbsp;<span id="server-show" data-default='默认：没有后台'>默认：没有后台</span></p>
         </div>
+        <script type="text/template" id="server-show-template">
+          <span id="show-ip"><%= ip %></span>:
+          <span id="show-port"><%= port %></span>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="arrow-rigt" href="javascript:void(0)">&gt;&gt;</a>
+        </script>
       </section>
     </div>
     
     <div class="footer">
       <div class="credits">
-        <span class="right">maintained by &mdash; <a href="https://github.com/zizih">hezi</a></span>
+        <span class="right">2013-10-31 start maintained by &mdash; <a href="https://github.com/zizih">hezi</a></span>
       </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-          <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("stay real byhezi");
-              pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
+    <script type="text/template" id="alert-template">
+      <div class="alert" style="top:<%=top%>;left:<%=left%>">
+        <%= firstContent %>
+      </div>
+    </script>
+    
+    
+    <script type="text/javascript">
+      app.init();
+      Backbone.history.start();
+    </script>
   </body>
 </html>

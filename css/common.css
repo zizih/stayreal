@@ -22,3 +22,39 @@ a {
 a:hover {
   color: #224488;
 }
+
+/**
+ *   alert
+ */
+
+.alert {
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  color: #0f0;
+  display: none;
+}
+
+a.arrow-rigt {
+  color: #777;
+  font-weight: bold;
+  text-shadow: 1px 0 #fff;
+  /*background: url('../images/icons.png');
+  background-position: -264px -96px;*/
+}
+
+a.arrow-rigt:hover {
+  color: #555;
+}
+
+/**
+ *   common
+ */
+.has-input {
+  background-color: #2a2a29;
+  color: #eee; 
+}
+
+.font-gray {
+  color: #454545;
+}
