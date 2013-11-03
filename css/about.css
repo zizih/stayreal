@@ -89,9 +89,6 @@
   background: #222;
   opacity: 0.5;
   filter: alpha(opacity=50);
-  -webkit-border-radius: 23px;
-   -moz-border-radius: 23px;
-        border-radius: 23px;
 }
 
 .carousel-control span {
@@ -114,6 +111,9 @@
   background: #333333;
   background: rgba(0, 0, 0, 0.75);
   height: auto;
+    -webkit-border-radius: 23px 23px 0px 0px;
+   -moz-border-radius: 23px 23px 0px 0px;
+        border-radius: 23px 23px 0px 0px;
 }
 
 .carousel-caption h4,
@@ -166,4 +166,19 @@
   height: 12px;
   margin: 0;
   background-color: white;
+}
+
+/**
+ * about works-ablum  
+ */
+.album {
+  position: absolute;
+  top: -30px;
+  height: 50px;
+  width: 100%;
+}
+
+.album a {
+  color: #666;
+  padding: 5px;
 }

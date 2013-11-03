@@ -25,7 +25,7 @@ app.Router = Backbone.Router.extend({
               isFirst: true,
               imgUrl: './images/codejam01.JPG',
               imgAlt: '0',
-              caption: '编程进行了24个小时之后，终于到了我们的《唤醒灯》的展示时间，项目点子的作者朱鹏飞在向参赛者解说，我在幕后操作手机客户端，屏幕上看到的黑白时间定时界面，一看就是我的风格了'
+              caption: '编程进行了24个小时之后，终于到了我们的《唤醒灯》的展示时间，项目点子的作者鹏飞在向参赛者解说，我在幕后操作手机客户端，屏幕上看到的黑白时间定时界面就是我几百年不动摇的风格了'
             },
             {
               imgUrl: './images/codejam02.JPG',
@@ -35,7 +35,7 @@ app.Router = Backbone.Router.extend({
             {
               imgUrl: './images/codejam03.JPG',
               imgAlt: '2',
-              caption: '颁奖的时候，很对不起朱鹏飞，他想了很多天，并且从深圳赶来找硬件工程师大宝（中间）做了充分准备，我写android时没有考虑周全令演示出状况，结果得了第四名'
+              caption: '颁奖的时候，很对不起鹏飞，他想了很多天，并且从深圳赶来找硬件工程师大宝（中间）做了充分准备，我写android时没有考虑周全令演示出状况，结果得了第四名'
             },
           ]
       })
