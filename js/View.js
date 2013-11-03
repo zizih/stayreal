@@ -26,7 +26,8 @@ app.View = function() {
         this.model.serverModel.set($target.attr('name'), $target.attr('data-default-' + $target.attr('name')));
       } else {
         $target.addClass('has-input');
-        if(parseInt($target.val()).toString() !== $target.val() && $target.attr('ctype') === 'number') {
+        var msg = new RegExp('[^0-9]').test($target.val());
+        if(msg && $target.attr('ctype') === 'number') {
           $target.val($target.val().replace(/[^0-9]/g, ''));
           var alert = new AlertView({
             timeout: 1000,
