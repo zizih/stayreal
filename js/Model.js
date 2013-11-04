@@ -5,8 +5,8 @@ app.Model = function () {
     ServerModel: Backbone.Model.extend({
       defaults: function() {
         return {
-          ip: app.config.defaultIp,
-          port: app.config.defaultPort
+          ip: app.config.server.defaultIp,
+          port: app.config.server.defaultPort
         }
       },
       initialize: function () {
@@ -18,8 +18,8 @@ app.Model = function () {
         return this.get('port');
       },
       ifNull: function() {
-        return this.get('ip') === app.config.defaultIp 
-               && this.get('port') === app.config.defaultPort;
+        return this.get('ip') === app.config.server.defaultIp 
+               && this.get('port') === app.config.server.defaultPort;
       }
     }),
     
@@ -40,11 +40,21 @@ app.Model = function () {
     WorksModel: Backbone.Model.extend({
       defaults: function() {
         return {
-          works: []
+          work: []
         }
       },
       getSize: function () {
-        return this.get('works').length;
+        return this.get('work').length;
+      }
+    }),
+    AblumModel: Backbone.Model.extend({
+      defaults: function() {
+        return {
+          album: []
+        }
+      },
+      getSize: function () {
+        return this.get('album').length;
       }
     })
     

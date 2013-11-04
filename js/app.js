@@ -13,13 +13,6 @@
     this.routers = {};
     this.models = {};
     this.views = {};
-    
-    this.config = {
-      baseUrl: '#',
-      defaultIp: '127.0.0.1',
-      defaultPort: '9600',
-    };
-    
   }
   
   App.prototype.init = function () {

@@ -111,7 +111,7 @@
   background: #333333;
   background: rgba(0, 0, 0, 0.75);
   height: auto;
-    -webkit-border-radius: 23px 23px 0px 0px;
+  -webkit-border-radius: 23px 23px 0px 0px;
    -moz-border-radius: 23px 23px 0px 0px;
         border-radius: 23px 23px 0px 0px;
 }
@@ -136,7 +136,6 @@
  *   add by copy && not from bootstrap.css
  */
 .carousel-indicators {
-  display: none;
   position: absolute;
   bottom: -10%;
   left: 50%;
@@ -172,13 +171,31 @@
  * about works-ablum  
  */
 .album {
-  position: absolute;
-  top: -30px;
-  height: 50px;
+  height: 30px;
   width: 100%;
+  margin-bottom: -50px;
+  padding-top: 20px;
 }
 
 .album a {
   color: #666;
   padding: 5px;
 }
+
+.album a:hover {
+  color: #777;
+  text-shadow: 0.1em 0.1em 0.05em #333;
+  background-color: #282828;
+  -webkit-border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+}
+
+.album .select{
+  background-color: #363636;
+  -webkit-border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+}
+
+
