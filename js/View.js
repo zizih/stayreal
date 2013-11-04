@@ -30,17 +30,26 @@ app.View = function() {
         //do not have correct input && show err alert
         if(msg && $target.attr('ctype') === 'number') {
           $target.val($target.val().replace(/[^0-9]/g, ''));
-          var alert = new AlertView({
-            timeout: 1000,
-            firstContent: 'err.',
-          });
+          var alert = new AlertView();
           alert.show({
             top: (e.target.offsetTop + 200) + 'px',
-            left: (e.target.offsetLeft + 100) + 'px'
+            left: (e.target.offsetLeft + 100) + 'px',
+            timeout: 1000,
+            firstContent: '端口不应该是字符啊～',
           });
-        } else {
-          this.model.serverModel.set($target.attr('name'), $target.val());
+        } 
+        msg = new RegExp('[^0-9\.]').test($target.val());
+        if(msg && $target.attr('ctype') === 'ip') {
+          $target.val($target.val().replace(/[^0-9\.]/g, ''));
+          var alert = new AlertView();
+          alert.show({
+            top: (e.target.offsetTop + 200) + 'px',
+            left: (e.target.offsetLeft - 100) + 'px',
+            timeout: 1000,
+            firstContent: 'ip没有.和数字以外的字符～',
+          });
         }
+        this.model.serverModel.set($target.attr('name'), $target.val());
       }
       //about server's show
       if(this.model.serverModel.ifNull()) {
