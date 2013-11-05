@@ -7,7 +7,7 @@ app.View = function() {
     el: $('#page-index'),
     events: {
       'keyup input': 'unedit',
-      'click #toServer': 'toServer'
+      'click #server-show': 'toServer' 
     },
     initialize: function() {
     },
@@ -60,7 +60,10 @@ app.View = function() {
     },
     toServer: function () {
       var server = $('[name="ip"]') + ':' + $('[name="port"]');
-      //deal with server specified
+      //fail to verify ip
+      // var reg = /^(/d{1,3})/.(/d{1,3})/.(/d{1,3})/.(/d{1,3})$/;
+      //to server page
+      location.href="#server";
     },
     show: function () {
       this.$el.show();
