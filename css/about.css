@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  min-height: 396px;
+  min-height: 360px;
 }
 
 .carousel-inner > .item {

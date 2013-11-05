@@ -87,7 +87,7 @@
         <script type="text/template" id="works-item-template">
           <% for(i in work) { %>
             <div class="item <%= work[i].isFirst ? 'active' : '' %>">
-              <img src="<%= work[i].imgUrl %>" alt="<%= work[i].imgAlt || '' %>" data-href="http://segmentfault.com/e/codejam-guangzhou-2013-p3"/>
+              <img src="<%= work[i].imgUrl %>" alt="<%= work[i].imgAlt || '' %>" data-href="<%= work[i].href %>"/>
               <div class="carousel-caption">
                 <%= work[i].caption || '' %>
               </div>

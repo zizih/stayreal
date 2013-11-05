@@ -18,7 +18,7 @@ app.config = {
         imgUrl: './images/hacker02.JPG',
         imgAlt: '2',
         href: 'https://plus.google.com/photos/114920001331857622210/albums/5830155029390732513?authkey=CNPT-Y-V3fqJ4gE',
-        caption: '现场组的一位队友和我一样的编程基础，并且在在编程进行了6个小时之后就和我道别，我孤军挣扎了一会也去吃饭了。'
+        caption: '这个位置是现场组的一位队友，和我一样的编程基础，并且在在马拉松进行了6个小时之后和我道别，我孤军挣扎了一会也只好去吃饭了。'
       },
       {
         imgUrl: './images/hacker03.JPG',
@@ -51,7 +51,7 @@ app.config = {
         imgUrl: './images/codejam02.JPG',
         imgAlt: '2',
         href: 'http://segmentfault.com/e/codejam-guangzhou-2013-p3',
-        caption: '演示进行得差不多了，大家都在等手机遥控关灯结果出意外了，android和单片机的连接超时，已经断开，求开灯原谅，求鹏飞原谅。'
+        caption: '演示进行得差不多了，大家都在等手机遥控关灯结果出意外了，android和单片机的连接超时已经断开，求原谅。'
       },
       {
         imgUrl: './images/codejam03.JPG',
@@ -109,12 +109,12 @@ app.config = {
       {
         imgUrl: './images/hope04.JPG',
         imgAlt: '1',
-        caption: '身材和智商上，是女汉子。'
+        caption: '头发梳了，营养良了，身材和智商上是女汉子。'
       },
       {
         imgUrl: './images/hope05.JPG',
         imgAlt: '1',
-        caption: '被拍到清晰的脸，没人挡住。'
+        caption: '摄影师注意到每一个，包括我。'
       },
       {
         imgUrl: './images/hope06.jpg',
