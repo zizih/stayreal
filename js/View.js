@@ -154,8 +154,29 @@ app.View = function() {
       item0.html('主页');
       item0.attr('href', '#index');
     },
+    events: {
+      'mouseover .server-item .server-item-title': 'showdesc',
+      'mouseout .server-item .server-item-title': 'hidedesc',
+      'dblclick .server-item .server-item-title': 'showop',
+    },
     template: {
       //_.template($('#').html())
+    },
+    showdesc: function (e) {
+      $(e.target).next().show();
+    },
+    hidedesc: function (e) {
+      $(e.target).next().hide();
+    },
+    showop: function (e) {
+      this.showdesc(e);
+      $(e.target).next().next().toggle();
+      e.preventDefault();
+    },
+    hideop: function (e) {
+      this.hidedesc(e);
+      $(e.target).next().next().hide();
+      e.preventDefault();
     },
     render: function(){
       

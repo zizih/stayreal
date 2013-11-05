@@ -12,7 +12,7 @@ app.config = {
         imgUrl: './images/hacker01.JPG',
         imgAlt: '2',
         href: 'https://plus.google.com/photos/114920001331857622210/albums/5830155029390732513?authkey=CNPT-Y-V3fqJ4gE',
-        caption: '见到人生中第一批程序员到现在着实除了一个android加减乘除计算器和js计时器便没有任何成果了，也敢在大牛云集的bata提点子,点子是《手机防摔保护程序》。'
+        caption: '人生中见到第一批程序员到此时着实除了一个android加减乘除计算器和js计时器便没有任何成果了，也敢在大牛云集的bata提点子,点子是《手机防摔保护程序》。'
       },
       {
         imgUrl: './images/hacker02.JPG',
@@ -30,7 +30,7 @@ app.config = {
         imgUrl: './images/hacker04.JPG',
         imgAlt: '4',
         href: 'https://plus.google.com/photos/114920001331857622210/albums/5830155029390732513?authkey=CNPT-Y-V3fqJ4gE',
-        caption: '没有做出什么成果，在anson的指导下完成了条形图的绘制，然后凌晨在2楼露天院子的沙发上睡了5个小时，但是第一次24编程的体会是：我可以成为程序员。'
+        caption: '没有做出什么成果，在anson的指导下完成了条形图的绘制，然后凌晨在2楼露天院子的沙发上睡了5个小时，但是第一次24编程的体会是：我将来可以成为程序员。'
       }
     ],
     codejam: [
@@ -39,7 +39,7 @@ app.config = {
         imgUrl: './images/codejam00.JPG',
         imgAlt: '1',
         href: 'http://segmentfault.com/e/codejam-guangzhou-2013-p3',
-        caption: '2013中国移动开发者大赛，两个人的组合（鹏飞：硬件出生的软件工程师 大宝：硬件工程师）需要一个安卓开发，我有幸加入。'
+        caption: '2013中国移动开发者大赛，两个人的组合（鹏飞：硬件出生的软件工程师 大宝：硬件工程师）需要一个安卓开发，没有任何准备的我有幸加入。'
       },
       {
         imgUrl: './images/codejam01.JPG',
@@ -80,12 +80,12 @@ app.config = {
       {
         imgUrl: './images/intern04.jpg',
         imgAlt: '4',
-        caption: '参加了个性壁纸、九周年“陪伴成长 我的一件事”、办新家新闻推送、印度拉力赛暨新年活动，前后两个有参与java后台，中间两个完全前端，最后一个还没提测，对不起没用心我不是反应迟钝,相信我！'
+        caption: '参加了个性壁纸、九周年“陪伴成长 我的一件事”、办新家新闻推送、印度拉力赛暨新年活动，前后两个有参与java后台，中间两个完全前端，最后一个还没提测，对不起没用心，我不是反应迟钝，相信我！'
       },
       {
         imgUrl: './images/intern05.jpg',
         imgAlt: '5',
-        caption: '最后一次demo演示，不知道当初没有强烈留在公司的愿望会成真。三个月没有把握时间好好投入到项目中，知道自己要离职到离开公司只有几个小时，脑子究竟放空了多久呢！我还能回去吗？'
+        caption: '不知道当初没有强烈留在公司的愿望会成真。三个月没有把握时间好好投入到项目中，知道自己要离职到离开公司只有几个小时，脑子究竟放空了多久呢！我还能回去吗？'
       }
     ],
     hope: [
@@ -104,22 +104,22 @@ app.config = {
       {
         imgUrl: './images/hope03.jpg',
         imgAlt: '1',
-        caption: '在台上最闪耀，不畸形不猥琐。'
+        caption: '台上是最闪耀的，不畸形不猥琐的。'
       },
       {
         imgUrl: './images/hope04.JPG',
         imgAlt: '1',
-        caption: '身材和智商上，成为女汉子。'
+        caption: '身材和智商上，是女汉子。'
       },
       {
         imgUrl: './images/hope05.JPG',
         imgAlt: '1',
-        caption: '被照到光线合适的、清晰的脸。'
+        caption: '被拍到清晰的脸，没人挡住。'
       },
       {
         imgUrl: './images/hope06.jpg',
         imgAlt: '1',
-        caption: 'Maybe，big breasts needed.'
+        caption: 'Maybe,big breasts needed.'
       }
     ]
   },
