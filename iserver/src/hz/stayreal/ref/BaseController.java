@@ -1,5 +1,7 @@
 package hz.stayreal.ref;
 
+import hz.stayreal.ref.model.Header;
+
 import java.io.PrintWriter;
 
 /**
@@ -11,15 +13,30 @@ import java.io.PrintWriter;
  */
 public class BaseController {
 
+    private Header header;
     private PrintWriter respon;
 
     protected void render(String template) {
+        respon.println("Content-Type:text/html;charset=UTF8");
+        respon.println();
         respon.println(template);
+        respon.flush();
+        respon.close();
+    }
+
+    protected void renderJSON(Object object) {
+        respon.println("Content-Type:text/json;charset=UTF8");
+        respon.println();
+        respon.println(object);
         respon.flush();
         respon.close();
     }
 
     public void setRespon(PrintWriter respon) {
         this.respon = respon;
+    }
+
+    public void setHeader(Header header) {
+        this.header = header;
     }
 }

@@ -11,11 +11,20 @@ import hz.stayreal.ref.net.HttpServer;
  */
 public class Start {
 
+    private static int PORT = 9600;
+
     public static void main(String[] args) {
-
-        HttpServer server = new HttpServer(9600);
+        custom(args);
+        HttpServer server = new HttpServer(PORT);
         server.setController(new Controller());
+        server.start();
+    }
 
+    private static void custom(String[] args) {
+        if (args.length == 1) {
+            PORT = Integer.parseInt(args[0]);
+            return;
+        }
     }
 
 }

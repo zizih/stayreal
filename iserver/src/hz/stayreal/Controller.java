@@ -2,6 +2,9 @@ package hz.stayreal;
 
 import hz.stayreal.ref.BaseController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: rain
@@ -12,7 +15,12 @@ import hz.stayreal.ref.BaseController;
 public class Controller extends BaseController {
 
     public void insert(String name, String jack) {
-        render("<h1>test</h1>");
+        List tmp =new ArrayList<String>();
+        tmp.add("rain");
+        tmp.add("jack");
+        tmp.add("dad");
+        tmp.add("arron");
+        renderJSON(tmp);
     }
 
 
