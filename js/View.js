@@ -139,7 +139,10 @@ app.View = function() {
       }));
     },
     official: function (e){
-      window.open($(e.target).data().href);
+      var href = $(e.target).data().href;
+      if(!!href) {
+        window.open(href);
+      }
     },
     resetModel: function (obj) {
       this.model = obj;

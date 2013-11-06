@@ -151,5 +151,6 @@ section #title p {
 }
 
 #server-show:hover {
-  color: #000;
+  color: #777;
+  text-shadow: 1px 0 #ddd;
 }

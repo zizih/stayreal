@@ -104,7 +104,7 @@ app.config = {
       {
         imgUrl: './images/hope03.jpg',
         imgAlt: '1',
-        caption: '台上是最闪耀的，不畸形不猥琐的。'
+        caption: '台上最闪耀，淡定不猥琐的。'
       },
       {
         imgUrl: './images/hope04.JPG',
