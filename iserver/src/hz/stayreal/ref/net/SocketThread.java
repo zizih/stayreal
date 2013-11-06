@@ -41,18 +41,31 @@ public class SocketThread extends Thread {
     public void run() {
         super.run();
         try {
-            if (client == null || controller == null) return;
+            if (client == null) return;
+            if (controller == null) {
+                closeSocket(client);
+                return;
+            }
             Header header = new Header(client.getInputStream());
             //暂时不处理/favicon.ico请求
-            if (header.getRequestURI().equals("/favicon.ico")) return;
+            if (header.getRequestURI() == null || header.getRequestURI().equals("/favicon.ico")) {
+                closeSocket(client);
+                return;
+            }
             Log.i("recieved one client: " + header.getHost());
             Class controllerClass = controller.getClass();
             Method[] methods = controllerClass.getDeclaredMethods();
             for (Method method : methods) {
                 String uri = header.getRequestURI();
-                if (uri == null) return;
+                if (uri == null) {
+                    closeSocket(client);
+                    return;
+                }
                 int qIndex = uri.indexOf("?");
-                if (qIndex == -1) return;
+                if (qIndex == -1) {
+                    closeSocket(client);
+                    return;
+                }
                 String path = uri.substring(1, qIndex);
                 if (path.equals(method.getName())) {
                     try {
@@ -77,10 +90,15 @@ public class SocketThread extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        closeSocket(client);
     }
 
     public void closeSocket(Socket socket) {
         try {
+            if (client != null && controller != null) {
+                controller.setRespon(getResponPrintWriter(client.getOutputStream()));
+                controller.render404();
+            }
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();

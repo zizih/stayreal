@@ -1,8 +1,5 @@
 package hz.stayreal.ref.util;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  * Created with IntelliJ IDEA.
  * User: rain
@@ -13,7 +10,8 @@ import java.util.logging.Logger;
 public class Log {
 
     public static void i(String info) {
-        Logger logger = Logger.getLogger("");
-        logger.log(Level.INFO, info);
+//        Logger logger = Logger.getLogger("");
+//        logger.log(Level.INFO, info);
+        System.out.println(info);
     }
 }

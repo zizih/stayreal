@@ -69,7 +69,7 @@ app.View = function() {
       this.$el.show();
       //modify nav item
       var item0 = $('#header-nav-item0');
-      item0.html('about');
+      item0.html('i');
       item0.attr('href', '#about');
       return this;
     },
@@ -83,10 +83,10 @@ app.View = function() {
     el: $('#page-about'),
     initialize: function () {
       var item0 = $('#header-nav-item0');
-      item0.html('主页');
+      item0.html('home');
       item0.attr('href', '#index');
       //
-      this.workModel = this.model.works[1];
+      this.workModel = this.model.works[2];
       this.workView = new WorksView({
           model: this.workModel 
         });
@@ -154,13 +154,14 @@ app.View = function() {
     el: $('#page-server'),
     initialize: function() {
       var item0 = $('#header-nav-item0');
-      item0.html('主页');
+      item0.html('home');
       item0.attr('href', '#index');
     },
     events: {
       'mouseover .server-item .server-item-title': 'showdesc',
       'mouseout .server-item .server-item-title': 'hidedesc',
-      'dblclick .server-item .server-item-title': 'showop',
+      'click .server-item .server-item-title': 'showop',
+      'dblclick .server-item .server-item-title': 'hideop',
     },
     template: {
       //_.template($('#').html())
@@ -173,6 +174,7 @@ app.View = function() {
     },
     showop: function (e) {
       this.showdesc(e);
+      this.hideAllOp(e);
       $(e.target).next().next().toggle();
       e.preventDefault();
     },
@@ -180,6 +182,9 @@ app.View = function() {
       this.hidedesc(e);
       $(e.target).next().next().hide();
       e.preventDefault();
+    },
+    hideAllOp: function (e) {
+      $(e.target).parents().find('.server-item-op').hide();
     },
     render: function(){
       

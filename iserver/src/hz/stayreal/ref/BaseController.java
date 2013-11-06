@@ -32,6 +32,14 @@ public class BaseController {
         respon.close();
     }
 
+    public void render404() {
+        respon.println("Content-Type:text/html;charset=UTF8");
+        respon.println();
+        respon.println("<404> iServer Sorry!");
+        respon.flush();
+        respon.close();
+    }
+
     public void setRespon(PrintWriter respon) {
         this.respon = respon;
     }

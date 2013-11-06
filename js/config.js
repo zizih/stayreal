@@ -131,11 +131,11 @@ app.config = {
     {
       tagId: 1,
       tagName: '2013移动开发者',
-      select: true
     },
     {
       tagId: 2,
-      tagName: 'UC暑假'
+      tagName: 'UC暑假',
+      select: true
     },
     {
       tagId: 3,

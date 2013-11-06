@@ -3,6 +3,7 @@
 .server-item {
   margin-bottom: 20px;
   cursor:pointer;
+  min-height: 30px;
 }
 
 .server-item span{
@@ -14,6 +15,7 @@
   display: none;
   color: #555;
   position: absolute;
+  padding-left: 20%;
 }
 
 .server-item-op{
