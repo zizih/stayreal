@@ -80,3 +80,18 @@
   color: #eee;
   font-weight: bold;
 }
+
+
+/**
+ * 	ahout game
+ */
+
+.game-one {
+	text-align: center;
+}
+
+.game-one-pic {
+	width: 100px;
+	height: 300px;
+	border: 1px solid #444;
+}
