@@ -1,6 +1,7 @@
 package hz.stayreal;
 
 import hz.stayreal.ref.net.HttpServer;
+import hz.stayreal.web.controller.Application;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,7 +17,7 @@ public class Start {
     public static void main(String[] args) {
         custom(args);
         HttpServer server = new HttpServer(PORT);
-        server.setController(new Controller());
+        server.setController(new Application());
         server.start();
     }
 

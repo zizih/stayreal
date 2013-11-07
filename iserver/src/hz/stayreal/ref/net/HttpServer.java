@@ -1,6 +1,6 @@
 package hz.stayreal.ref.net;
 
-import hz.stayreal.Controller;
+import hz.stayreal.web.controller.Application;
 import hz.stayreal.ref.util.Log;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.net.Socket;
 public class HttpServer extends Thread {
 
     private ServerSocket serverSocket;
-    private Controller controller;
+    private Application controller;
 
     public HttpServer(int port) {
         try {
@@ -44,7 +44,7 @@ public class HttpServer extends Thread {
         }
     }
 
-    public void setController(Controller controller) {
+    public void setController(Application controller) {
         this.controller = controller;
     }
 

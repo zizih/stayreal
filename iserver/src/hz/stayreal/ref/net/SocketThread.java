@@ -1,6 +1,6 @@
 package hz.stayreal.ref.net;
 
-import hz.stayreal.Controller;
+import hz.stayreal.web.controller.Application;
 import hz.stayreal.ref.model.Header;
 import hz.stayreal.ref.util.Log;
 
@@ -20,14 +20,14 @@ import java.net.Socket;
  */
 public class SocketThread extends Thread {
 
-    private Controller controller;
+    private Application controller;
     private Socket client;
 
     public SocketThread(Socket client) {
         this.client = client;
     }
 
-    public void setController(Controller controller) {
+    public void setController(Application controller) {
         this.controller = controller;
     }
 
@@ -95,7 +95,7 @@ public class SocketThread extends Thread {
 
     public void closeSocket(Socket socket) {
         try {
-            if (client != null && controller != null) {
+            if (client != null && !client.isClosed() && controller != null) {
                 controller.setRespon(getResponPrintWriter(client.getOutputStream()));
                 controller.render404();
             }

@@ -1,5 +1,6 @@
-package hz.stayreal.ref;
+package hz.stayreal.web.controller;
 
+import com.google.gson.Gson;
 import hz.stayreal.ref.model.Header;
 
 import java.io.PrintWriter;
@@ -27,7 +28,7 @@ public class BaseController {
     protected void renderJSON(Object object) {
         respon.println("Content-Type:text/json;charset=UTF8");
         respon.println();
-        respon.println(object);
+        respon.println(new Gson().toJson(object));
         respon.flush();
         respon.close();
     }
