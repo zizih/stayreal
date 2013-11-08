@@ -70,7 +70,7 @@ app.View = function() {
       //modify nav item
       var item0 = $('#header-nav-item0');
       item0.html('i');
-      item0.attr('href', '#about');
+      item0.attr('href', '#i');
       return this;
     },
     hide: function () {
@@ -78,9 +78,9 @@ app.View = function() {
     }
   });
   
-  var AboutView = Backbone.View.extend({
+  var IView = Backbone.View.extend({
     
-    el: $('#page-about'),
+    el: $('#page-i'),
     initialize: function () {
       var item0 = $('#header-nav-item0');
       item0.html('home');
@@ -162,9 +162,24 @@ app.View = function() {
       'mouseout .server-item .server-item-title': 'hidedesc',
       'click .server-item .server-item-title': 'showop',
       'dblclick .server-item .server-item-title': 'hideop',
+      'click #insert': 'insert'
     },
     template: {
       //_.template($('#').html())
+    },
+    insert: function () {
+      if(!app.iAjax) {
+        app.iAjax = new iAjax();
+      }
+      app.iAjax.get(
+        'http://10.50.9.27:9600/insert?name=rain&jack=arron',
+        function (data) {
+         console.log(data); 
+        },
+        function (err) {
+          console.log(err);
+        } 
+      );
     },
     showdesc: function (e) {
       $(e.target).next().show();
@@ -223,7 +238,7 @@ app.View = function() {
 
   return {
     IndexView: IndexView,
-    AboutView: AboutView,
+    IView: IView,
     ServerView: ServerView
   }
 

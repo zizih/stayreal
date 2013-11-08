@@ -11,6 +11,7 @@
     <script src="public/js/lib/jquery.js"></script>
     <script src="public/js/lib/underscore.js"></script>
     <script src="public/js/lib/backbone.js"></script>
+    <script src="public/js/component/network.js"></script>
     <script src="public/js/app.js"></script>
     <script src="public/js/config.js"></script>
     <script src="public/js/Router.js"></script>
@@ -29,7 +30,7 @@
   <body>
       <div id="header">
         <nav>
-          <li><a href="#about" id="header-nav-item0">i</a></li>
+          <li><a href="#i" id="header-nav-item0">i</a></li>
         </nav>
       </div><!-- end header -->
 
@@ -39,7 +40,7 @@
       <section id="page-index">
         <div id="title">
           <h1>iCode</h1>
-          <p>一直有努力，常常不看书。 </p>
+          <p>为回到离开的地方，我有努力</p>
         </div>
 		    <div class="content">
 		      <div class="input">
@@ -58,11 +59,11 @@
         </script>
       </section>
       
-      <!--    about page    -->
-      <section id="page-about">
+      <!--    i page    -->
+      <section id="page-i">
         <div id="title">
           <h1>iDevelop</h1>
-          <p>一直在成长，偶尔不用心</p>
+          <p>一直在成长，但不用心</p>
           <!-- album -->
           <div class="album">
           </div>
@@ -109,7 +110,7 @@
       <section id="page-server">
         <div id="title">
           <h1>iDemo</h1>
-          <p>一直有目标，都试试</p>
+          <p>试写Web Server通过Java Socket</p>
         </div>
         <div class="content">
           <div class="server-item">
@@ -119,9 +120,9 @@
             </div>
             <div class="server-item-op">
               <span>选择一种数据库：<a>mysql</a><a>derby</a><a>moogoDB</a></span>
-              <span><input type="number"><a>insert</a></span>
-              <span><input type="number"><a>select</a></span>
-              <span><input type="number"><a>delete</a></span>
+              <span><input type="number" name="insert"><a id="insert">insert</a></span>
+              <span><input type="number" name="select"><a>select</a></span>
+              <span><input type="number" name="delete"><a>delete</a></span>
             </div>
           </div>
           <div class="server-item">

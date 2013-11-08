@@ -30,7 +30,6 @@
     });
     
     this.views.indexView.show();
-    
   }
   
   window.app = new App();

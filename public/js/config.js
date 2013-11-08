@@ -65,12 +65,12 @@ app.config = {
         isFirst: true,
         imgUrl: './public/images/intern01.jpg',
         imgAlt: '1',
-        caption: '“三个月实习之后就可以拿到学分了”，是当时最真最傻的全部想法。'
+        caption: '“三个月实习之后就可以拿到学分了”，离开前最真最傻的想法。'
       },
       {
         imgUrl: './public/images/intern02.jpg',
         imgAlt: '2',
-        caption: '一年零三个月陪伴我所有的编程之路的操作系统，但求助了linux大牛也没能成功编译tplink55××驱动，解决办法是换网卡。'
+        caption: '一年零三个月陪伴我所有编程之路的操作系统，求助了linux大牛也没能成功编译tplink55××驱动，解决办法是换网卡。'
       },
       {
         imgUrl: './public/images/intern03.jpg',
@@ -90,7 +90,7 @@ app.config = {
       {
         imgUrl: './public/images/intern06.jpg',
         imgAlt: '6',
-        caption: '为当初的轻浮付出的代价——回不去的位置。<br>我准备好了，给我机会吧？'
+        caption: '为当初的轻浮付出的代价——回不去的位置。'
       }
     ],
     hope: [

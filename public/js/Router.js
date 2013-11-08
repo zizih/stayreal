@@ -2,7 +2,7 @@ app.Router = Backbone.Router.extend({
   
   routes: {
     'index': 'index',
-    'about': 'about',
+    'i': 'i',
     'server': 'server'
   },
   
@@ -16,10 +16,10 @@ app.Router = Backbone.Router.extend({
     this.views.indexView.show();
   },
   
-  about: function () {
+  i: function () {
     this.hideAll();
-    this.navigate('#about');
-    this.views.aboutView = new app.constr.views.AboutView({
+    this.navigate('#i');
+    this.views.aboutView = new app.constr.views.IView({
       model: {
         works: [
           new app.constr.models.WorksModel({

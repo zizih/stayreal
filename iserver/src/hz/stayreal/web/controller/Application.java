@@ -1,12 +1,6 @@
 package hz.stayreal.web.controller;
 
-import hz.stayreal.ref.db.MysqlHelper;
-import hz.stayreal.web.model.Vip;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import hz.stayreal.web.service.VipService;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,24 +12,8 @@ import java.util.List;
 public class Application extends BaseController {
 
     public void insert(String name, String jack) {
-        MysqlHelper dbHelper = MysqlHelper.getInstance();
-        ResultSet rs = dbHelper.execQuery("select * from vip");
-        List list = null;
-        try {
-            list = new ArrayList<Vip>();
-            Vip vip = null;
-            while (rs.next()) {
-                vip = new Vip();
-                vip.setId(rs.getInt("id"));
-                vip.setName(rs.getString("name"));
-                vip.setDesc(rs.getString("desc"));
-                list.add(vip);
-            }
-            rs.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        renderJSON(list);
+        System.out.println(name + "   " + jack);
+        renderJSON(VipService.all());
     }
 
 
