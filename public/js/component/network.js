@@ -9,13 +9,13 @@
   }
   
   iAjax.prototype.get = function (url, success, err){
-    this.xmlhttp.open("GET","url",true);
+    this.xmlhttp.open("GET", url, true);
     this.xmlhttp.send();
     console.log(this.xmlhttp);
   }
   
   iAjax.prototype.post = function (params, url, success, err){
-    this.xmlhttp.open("POST","url",true);
+    this.xmlhttp.open("POST", url, true);
     this.xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     this.xmlhttp.send(SON.stringify(params));
   }
