@@ -168,18 +168,13 @@ app.View = function() {
       //_.template($('#').html())
     },
     insert: function () {
-      if(!app.iAjax) {
-        app.iAjax = new iAjax();
-      }
-      app.iAjax.get(
-        'http://10.50.9.27:9600/insert?name=rain&jack=arron',
-        function (data) {
-         console.log(data); 
-        },
-        function (err) {
-          console.log(err);
+      $.ajax({
+        type: 'get',
+        url: 'http://10.50.9.27:9600/insert?name=rain&jack=arron',
+        success: function (data) {
+          console.log(data);
         } 
-      );
+      });
     },
     showdesc: function (e) {
       $(e.target).next().show();
