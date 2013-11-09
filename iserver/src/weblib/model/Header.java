@@ -1,4 +1,4 @@
-package hz.stayreal.ref.model;
+package weblib.model;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,7 +1,7 @@
-package hz.stayreal.web.service;
+package webapp.service;
 
-import hz.stayreal.web.dao.VipDao;
-import hz.stayreal.web.model.Vip;
+import webapp.dao.VipDao;
+import webapp.model.Vip;
 
 import java.util.List;
 

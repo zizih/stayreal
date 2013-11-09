@@ -1,7 +1,7 @@
-package hz.stayreal.ref.net;
+package weblib.net;
 
-import hz.stayreal.web.controller.Application;
-import hz.stayreal.ref.util.Log;
+import webapp.controller.Application;
+import weblib.util.Log;
 
 import java.io.IOException;
 import java.net.ServerSocket;

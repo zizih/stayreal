@@ -1,4 +1,4 @@
-package hz.stayreal.ref.db;
+package weblib.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -1,4 +1,4 @@
-package hz.stayreal.ref.util;
+package weblib.util;
 
 /**
  * Created with IntelliJ IDEA.

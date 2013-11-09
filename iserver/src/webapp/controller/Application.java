@@ -1,6 +1,7 @@
-package hz.stayreal.web.controller;
+package webapp.controller;
 
-import hz.stayreal.web.service.VipService;
+import webapp.controller.BaseController;
+import webapp.service.VipService;
 
 /**
  * Created with IntelliJ IDEA.

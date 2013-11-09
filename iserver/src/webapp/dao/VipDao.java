@@ -1,8 +1,7 @@
-package hz.stayreal.web.dao;
+package webapp.dao;
 
-import hz.stayreal.ref.db.MysqlHelper;
-import hz.stayreal.web.model.Vip;
-import hz.stayreal.web.service.VipService;
+import weblib.db.MysqlHelper;
+import webapp.model.Vip;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

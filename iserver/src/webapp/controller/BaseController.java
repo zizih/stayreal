@@ -1,7 +1,7 @@
-package hz.stayreal.web.controller;
+package webapp.controller;
 
 import com.google.gson.Gson;
-import hz.stayreal.ref.model.Header;
+import weblib.model.Header;
 
 import java.io.PrintWriter;
 

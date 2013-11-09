@@ -1,4 +1,4 @@
-package hz.stayreal.web.service;
+package webapp.service;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,4 +1,4 @@
-package hz.stayreal.ref.db;
+package weblib.db;
 
 import java.sql.*;
 
@@ -13,7 +13,7 @@ public class MysqlHelper implements IDBHelper {
 
     private static MysqlHelper instance;
     private String driver = "com.mysql.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/stayreal";
+    private String url = "jdbc:mysql://localhost:3306/weblib";
     private String user = "root";
     private String passwd = "hk";
     private Connection conn;

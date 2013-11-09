@@ -1,7 +1,7 @@
-package hz.stayreal;
+package webapp;
 
-import hz.stayreal.ref.net.HttpServer;
-import hz.stayreal.web.controller.Application;
+import webapp.controller.Application;
+import weblib.net.HttpServer;
 
 /**
  * Created with IntelliJ IDEA.

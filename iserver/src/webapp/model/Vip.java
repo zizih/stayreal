@@ -1,4 +1,4 @@
-package hz.stayreal.web.model;
+package webapp.model;
 
 /**
  * Created with IntelliJ IDEA.
