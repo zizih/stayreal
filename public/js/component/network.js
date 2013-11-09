@@ -8,16 +8,38 @@
     }
   }
   
-  iAjax.prototype.get = function (url, success, err){
-    this.xmlhttp.open("GET", url, true);
+  iAjax.prototype.get = function (options){
+    this.url = options.url;
+    this.success = options.success;
+    this.err = options.err;
+    this.xmlhttp.open("GET", this.url, true);
     this.xmlhttp.send();
-    console.log(this.xmlhttp);
+    var that = this;
+    this.xmlhttp.onreadystatechange = function () {
+      if(that.xmlhttp.readyState == 4 && that.xmlhttp.status == 200) {
+        that.success && that.success(JSON.parse(that.xmlhttp.responseText));
+      } else {
+        that.err && that.err(that.xmlhttp.responseText);
+      }
+    }
   }
   
-  iAjax.prototype.post = function (params, url, success, err){
-    this.xmlhttp.open("POST", url, true);
+  iAjax.prototype.post = function (options){
+    this.params = options.params;
+    this.url = options.url;
+    this.success = options.success;
+    this.err = options.err;
+    this.xmlhttp.open("POST", this.url, true);
     this.xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    this.xmlhttp.send(SON.stringify(params));
+    this.xmlhttp.send(JSON.stringify(this.params));
+    var that = this;
+    this.xmlhttp.onreadystatechange = function () {
+      if(that.xmlhttp.readyState == 4 && that.xmlhttp.status == 200) {
+        that.success && that.success(JSON.parse(that.xmlhttp.responseText));
+      } else {
+        that.err && that.err(that.xmlhttp.responseText);
+      }
+    }
   }
   
   win.iAjax = iAjax;

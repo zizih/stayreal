@@ -114,7 +114,7 @@ app.config = {
       {
         imgUrl: './public/images/hope04.JPG',
         imgAlt: '1',
-        caption: '头发梳了，营养良。'
+        caption: '持住大局。'
       },
       {
         imgUrl: './public/images/hope05.JPG',
@@ -142,11 +142,6 @@ app.config = {
         caption: '活在爱丽丝梦游仙境。'
       },
       {
-        imgUrl: './public/images/hope.JPG',
-        imgAlt: '1',
-        caption: '父亲还在我身边'
-      },
-      {
         imgUrl: './public/images/hope10.jpg',
         imgAlt: '1',
         caption: '技术牛人，2个，3个屏幕'
@@ -157,10 +152,15 @@ app.config = {
         caption: '吉他厉害。'
       },
       {
-        imgUrl: './public/images/hope12.jpg',
+        imgUrl: './public/images/hope.JPG',
         imgAlt: '1',
-        caption: 'big breasts.'
+        caption: '父亲还在我身边'
       }
+      // {
+        // imgUrl: './public/images/hope12.jpg',
+        // imgAlt: '1',
+        // caption: 'big breasts.'
+      // }
     ]
   },
   ablum: [

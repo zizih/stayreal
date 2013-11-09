@@ -6,64 +6,42 @@ app.View = function() {
 
     el: $('#page-index'),
     events: {
+      'keypress #comment': 'edit',
       'keyup input': 'unedit',
       'click #server-show': 'toServer' 
     },
     initialize: function() {
+      
     },
-    template: {
-      server: _.template($('#server-show-template').html())
-    },
+    template: _.template($('#comment-template').html()),
     render: function() {
-      this.$el.val(this.model.inputModel.get('editing'));
-      this.$el.toggleClass('editing', this.model.inputModel.edit());
       return this;
     },
-    unedit: function(e) {
-      var $target = $(e.currentTarget);
-      if (!$target.val()) {
-        $target.removeClass('has-input');
-        this.model.serverModel.set($target.attr('name'), $target.attr('data-default-' + $target.attr('name')));
-      } else {
-        $target.addClass('has-input');
-        var msg = new RegExp('[^0-9]').test($target.val());
-        //do not have correct input && show err alert
-        if(msg && $target.attr('ctype') === 'number') {
-          $target.val($target.val().replace(/[^0-9]/g, ''));
-          var alert = new AlertView();
-          alert.show({
-            top: (e.target.offsetTop + 200) + 'px',
-            left: (e.target.offsetLeft + 100) + 'px',
-            timeout: 1000,
-            firstContent: '端口不应该是字符啊～',
-          });
-        } 
-        msg = new RegExp('[^0-9\.]').test($target.val());
-        if(msg && $target.attr('ctype') === 'ip') {
-          $target.val($target.val().replace(/[^0-9\.]/g, ''));
-          var alert = new AlertView();
-          alert.show({
-            top: (e.target.offsetTop + 200) + 'px',
-            left: (e.target.offsetLeft - 100) + 'px',
-            timeout: 1000,
-            firstContent: 'ip没有.和数字以外的字符～',
-          });
-        }
-        this.model.serverModel.set($target.attr('name'), $target.val());
-      }
-      //about server's show
-      if(this.model.serverModel.ifNull()) {
-        $('#server-show').html($('#server-show').attr('data-default'));
-      } else {
-        $('#server-show').html(this.template.server(this.model.serverModel.toJSON()));        
-      }
+    add: function(str) {
+      this.model.commentModel.updateTime().set('content', str);
+      $('#comments').append(this.template(this.model.commentModel.toJSON()));
+      this.save();
     },
-    toServer: function () {
-      var server = $('[name="ip"]') + ':' + $('[name="port"]');
-      //fail to verify ip
-      // var reg = /^(/d{1,3})/.(/d{1,3})/.(/d{1,3})/.(/d{1,3})$/;
-      //to server page
-      location.href="#server";
+    save: function () {
+      if(!app.iAjax) {
+        app.iAjax = new iAjax();
+      }
+      app.iAjax.get({
+        url: 'insert',
+        success: function (data) {
+          console.log(data);
+        },
+        err: function (err) {
+          console.log();
+        }
+      });
+    },
+    edit: function (e) {
+      if(e.keyCode == 13) {
+        var $target = $(e.target);
+        this.add($target.val());
+        $target.val('');
+      }
     },
     show: function () {
       this.$el.show();
@@ -170,7 +148,7 @@ app.View = function() {
     insert: function () {
       $.ajax({
         type: 'get',
-        url: 'http://10.50.9.27:9600/insert?name=rain&jack=arron',
+        url: 'insert?name=rain&jack=arron',
         success: function (data) {
           console.log(data);
         } 

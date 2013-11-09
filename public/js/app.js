@@ -25,7 +25,7 @@
     this.views.indexView = new this.constr.views.IndexView({
       model: {
         inputModel: new this.constr.models.InputModel(),
-        serverModel: new this.constr.models.ServerModel()
+        commentModel: new this.constr.models.CommentModel()
       }
     });
     

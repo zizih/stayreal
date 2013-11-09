@@ -40,22 +40,21 @@
       <section id="page-index">
         <div id="title">
           <h1>iCode</h1>
-          <p>为回到离开的地方，我有努力</p>
+          <p>。。。。。。。。</p>
         </div>
 		    <div class="content">
 		      <div class="input">
-            <input placeholder="Server IP or 127.0.0.1" id="server-ip" name="ip" ctype='ip' data-default-ip="127.0.0.1">
-            <input placeholder="Server Port Or 9600" id="server-port" name="port" ctype="number" data-default-port="9600">
+            <input placeholder="有什么想吐槽?作者是个好人。Enter >>" id="comment" name="comment" size="40">
           </div>
-          <p class="font-gray">服务器地址&nbsp;&nbsp;<span>
-            <a href="javascript:void(0);" id="server-show" data-default='或者 去没有后台'>或者 去没有后台</a>
-            <a class="arrow-rigt" href="#server">&gt;&gt;</a>
-            </span>
-          </p>
+          <ul class="font-gray" id="comments">
+          </ul>
         </div>
-        <script type="text/template" id="server-show-template">
-          <span id="show-ip"><%= ip %></span>:
-          <span id="show-port"><%= port %></span>
+        <script type="text/template" id="comment-template">
+           <li class="comment">
+              <span class="time"><%= time %></span>
+              <span class="content"><%= content %></span>
+              <a href="javascript:void(0)" class='destroy'>X</a>
+            </li>
         </script>
       </section>
       

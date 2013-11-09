@@ -122,28 +122,28 @@ section #title p {
 }
 
 .wrapper input {
-	height:30px;
-	border-radius: 4px;
+  height: 30px;
+  border-radius: 4px;
 }
 
 /**
  * 	about footer
  */
 .footer {
-	max-width: 650px;
-	margin: auto;
-	/*position: bottom: auto;
-	top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-THE HEIGHT OF THIS THING IN PIXELS));
-	left: expression(eval(document.documentElement.scrollLeft));
-	width: expression(eval(document.documentElement.clientWidth));*/
+  max-width: 650px;
+  margin: auto;
+  /*position: bottom: auto;
+   top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-THE HEIGHT OF THIS THING IN PIXELS));
+   left: expression(eval(document.documentElement.scrollLeft));
+   width: expression(eval(document.documentElement.clientWidth));*/
 }
 
 .right {
-	float: right;
+  float: right;
 }
 
 .credits {
-	color: #353535;
+  color: #353535;
 }
 
 #server-show {
@@ -153,4 +153,50 @@ section #title p {
 #server-show:hover {
   color: #777;
   text-shadow: 1px 0 #ddd;
+}
+
+/**
+ *   add function of comment to index page 2013-11-09 15:54
+ */
+
+input[type="checkbox"] {
+  height: 12px;
+}
+
+#comments {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 220px;
+}
+
+#comments li{
+  width: 100%;
+  list-style-type: none;
+  text-align: left;
+}
+
+#comments a{
+  color: #ddd;
+  background: #777;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+#comments a:hover{
+  color: #000;
+  background: #666;
+}
+
+li.comment {
+  margin: 5px;
 }
