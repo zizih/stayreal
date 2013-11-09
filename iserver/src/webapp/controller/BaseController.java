@@ -20,27 +20,15 @@ public class BaseController {
     private OutputStream responOS;
 
     public void render(String templateName) {
-        respon.println("Content-Type:text/html;charset=UTF8");
-        respon.println();
-        respon.println(template(templateName));
-        respon.flush();
-        respon.close();
+        renderUtil("text/html", template(templateName));
     }
 
     public void renderJSON(Object object) {
-        respon.println("Content-Type:text/json;charset=UTF8");
-        respon.println();
-        respon.println(new Gson().toJson(object));
-        respon.flush();
-        respon.close();
+        renderUtil("text/json", new Gson().toJson(object));
     }
 
     public void render404() {
-        respon.println("Content-Type:text/html;charset=UTF8");
-        respon.println();
-        respon.println("<404> iServer Sorry!");
-        respon.flush();
-        respon.close();
+        renderUtil("text/html", "<404> iServer Sorry!");
     }
 
     public void renderOs2Js(InputStream is) {
@@ -52,6 +40,13 @@ public class BaseController {
 
     public void renderOs2Css(InputStream is) {
         respon.println("Content-Type:text/css;charset=UTF8");
+        respon.println();
+        renderOS(is);
+        respon.close();
+    }
+
+    public void renderOs2Image(InputStream is) {
+        respon.println("Content-Type:image/jpeg;charset=UTF8");
         respon.println();
         renderOS(is);
         respon.close();
@@ -78,7 +73,7 @@ public class BaseController {
      * @param contentType
      * @param str
      */
-    private void renderText(String contentType, String str) {
+    private void renderUtil(String contentType, String str) {
         respon.println("Content-Type:" + contentType + ";charset=UTF8");
         respon.println();
         respon.println(str);

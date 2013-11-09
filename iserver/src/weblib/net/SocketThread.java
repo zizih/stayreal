@@ -40,7 +40,7 @@ public class SocketThread extends Thread {
                 closeSocket(client);
                 return;
             }
-            Log.i("recieved one client: " + header.getHost());
+            Log.i("request: " + header.getRequestURI());
             String uri = header.getRequestURI();
 
             //处理public资源请求,不需要暴露给controller处理
@@ -49,6 +49,9 @@ public class SocketThread extends Thread {
             }
             if (uri.startsWith("/public/js")) {
                 renderJS(FileUtil.fileIS(uri));
+            }
+            if (uri.startsWith("/public/images")) {
+                renderImage(FileUtil.fileIS(uri));
             }
 
 
@@ -132,6 +135,16 @@ public class SocketThread extends Thread {
         try {
             controller.setResponOS(client.getOutputStream());
             controller.renderOs2Css(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        controller.render404();
+    }
+
+    private void renderImage(InputStream is) {
+        try {
+            controller.setResponOS(client.getOutputStream());
+            controller.renderOs2Image(is);
         } catch (IOException e) {
             e.printStackTrace();
         }
