@@ -1,6 +1,5 @@
 package webapp;
 
-import webapp.controller.Application;
 import weblib.net.HttpServer;
 
 /**
@@ -17,7 +16,6 @@ public class Start {
     public static void main(String[] args) {
         custom(args);
         HttpServer server = new HttpServer(PORT);
-        server.setController(new Application());
         server.start();
     }
 

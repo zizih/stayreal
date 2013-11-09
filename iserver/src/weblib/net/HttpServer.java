@@ -1,6 +1,5 @@
 package weblib.net;
 
-import webapp.controller.Application;
 import weblib.util.Log;
 
 import java.io.IOException;
@@ -12,12 +11,11 @@ import java.net.Socket;
  * User: rain
  * Date: 11/5/13
  * Time: 10:36 PM
- * To change this template use File | Settings | File Templates.
+ * HttpServer means SocketServer
  */
 public class HttpServer extends Thread {
 
     private ServerSocket serverSocket;
-    private Application controller;
 
     public HttpServer(int port) {
         try {
@@ -35,17 +33,12 @@ public class HttpServer extends Thread {
                 Socket client = serverSocket.accept();
                 if (client != null) {
                     SocketThread clientThread = new SocketThread(client);
-                    clientThread.setController(controller);
                     clientThread.start();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    }
-
-    public void setController(Application controller) {
-        this.controller = controller;
     }
 
     public void closeSocket(Socket socket) {

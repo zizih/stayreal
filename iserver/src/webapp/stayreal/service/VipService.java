@@ -1,6 +1,6 @@
-package webapp.service;
+package webapp.stayreal.service;
 
-import webapp.dao.VipDao;
+import webapp.stayreal.dao.VipDao;
 import webapp.model.Vip;
 
 import java.util.List;

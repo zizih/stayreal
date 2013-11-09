@@ -1,7 +1,6 @@
 package webapp.controller;
 
-import webapp.controller.BaseController;
-import webapp.service.VipService;
+import webapp.stayreal.service.VipService;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,10 +11,14 @@ import webapp.service.VipService;
  */
 public class Application extends BaseController {
 
+    public void index() {
+        render("index.html");
+//        renderFile("index.html");
+    }
+
     public void insert(String name, String jack) {
         System.out.println(name + "   " + jack);
         renderJSON(VipService.all());
     }
-
 
 }

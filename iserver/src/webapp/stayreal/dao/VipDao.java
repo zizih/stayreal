@@ -1,4 +1,4 @@
-package webapp.dao;
+package webapp.stayreal.dao;
 
 import weblib.db.MysqlHelper;
 import webapp.model.Vip;
