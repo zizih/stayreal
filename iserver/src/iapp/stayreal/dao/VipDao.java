@@ -1,11 +1,10 @@
 package iapp.stayreal.dao;
 
-import ilib.db.MysqlHelper;
 import iapp.model.Vip;
+import ilib.db.BaseDao;
+import ilib.app.IDao;
+import ilib.db.iexception.SqlException;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,27 +14,36 @@ import java.util.List;
  * Time: 9:37 PM
  * To change this template use File | Settings | File Templates.
  */
-public class VipDao {
+public class VipDao extends BaseDao<Vip> implements IDao<Vip> {
 
-    public static List<Vip> all() {
-        MysqlHelper dbHelper = MysqlHelper.getInstance();
-        ResultSet rs = dbHelper.execQuery("select * from vip");
-        List list = null;
-        try {
-            list = new ArrayList<Vip>();
-            Vip vip = null;
-            while (rs.next()) {
-                vip = new Vip();
-                vip.setId(rs.getInt("id"));
-                vip.setName(rs.getString("name"));
-                vip.setDesc(rs.getString("desc"));
-                list.add(vip);
-            }
-            rs.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return list;
+
+    @Override
+    public List<Vip> get(int id) throws SqlException, IllegalAccessException {
+        return null;
     }
 
+    @Override
+    public List<Vip> all() throws SqlException, IllegalAccessException {
+        return fetch(Vip.class);
+    }
+
+    @Override
+    public List<Vip> all(int start, int limt) throws SqlException, IllegalAccessException {
+        return null;
+    }
+
+    @Override
+    public List<Vip> add(Vip model) throws SqlException, IllegalAccessException {
+        return null;
+    }
+
+    @Override
+    public List<Vip> update(Vip model) throws SqlException, IllegalAccessException {
+        return null;
+    }
+
+    @Override
+    public List<Vip> delete(int id) throws SqlException, IllegalAccessException {
+        return null;
+    }
 }

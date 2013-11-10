@@ -1,8 +1,7 @@
 package ilib.net;
 
 import iapp.controller.Application;
-import iapp.controller.BaseController;
-import ilib.model.Header;
+import ilib.app.BaseController;
 import ilib.util.FileUtil;
 import ilib.util.Log;
 

@@ -1,4 +1,4 @@
-package ilib.model;
+package ilib.net;
 
 import java.io.BufferedReader;
 import java.io.IOException;

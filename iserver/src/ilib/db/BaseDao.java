@@ -1,7 +1,6 @@
-package iapp.stayreal.dao;
+package ilib.db;
 
 import com.google.gson.Gson;
-import ilib.db.MysqlHelper;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -22,46 +21,40 @@ import ilib.util.Log;
  * Time: 9:52 PM
  * 数据库的基本操作封装，由关系型操作到对象操作
  */
-public class BaseDao<T> {
+public class BaseDao<T> implements IBaseDao<T> {
 
 
+    @Override
+    public List<T> fetch(Class clzz) throws SqlException, IllegalAccessException {
+        //获取表名
+        Table table = (Table) clzz.getAnnotation(Table.class);
+        String tableName = table.name();
+        return fetch(clzz, "select * from " + tableName);
+    }
+
+    @Override
     public T fetch(Class clzz, int id) throws SqlException, IllegalAccessException {
         //获取表名
         Table table = (Table) clzz.getAnnotation(Table.class);
         String tableName = table.name();
-        MysqlHelper dbHelper = MysqlHelper.getInstance();
-        ResultSet rs = dbHelper.execQuery("select * from " + tableName);
-        T t = null;
-        try {
-            t = (T) clzz.newInstance();
-            String[] colums = getColums(clzz);
-            while (rs.next()) {
-                for (String filed : colums) {
-                    //mysql 数据库中int(2),int(11)都会拿回来的时候都是Long类型，How can I do?
-                    if (rs.getObject(rs.findColumn(filed)).getClass().equals(Long.class)) {
-                        Integer value = new Integer(rs.getInt(rs.findColumn(filed)));
-                        callSetter(t, filed, value);
-                    } else {
-                        callSetter(t, filed, rs.getObject(rs.findColumn(filed)));
-                    }
-                }
-                System.out.println(new Gson().toJson(t));
-            }
-            rs.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        }
-        return t;
+        return fetch(clzz, "select * from " + tableName + "where id=" + id).get(0);
     }
 
+    @Override
     public List<T> fetch(Class clzz, int limit, int start) throws SqlException, IllegalAccessException {
         //获取表名
         Table table = (Table) clzz.getAnnotation(Table.class);
         String tableName = table.name();
+        return fetch(clzz, "select * from " + tableName + " limit " + limit + "," + start);
+    }
+
+    @Override
+    public List<T> fetch(Class clzz, String sql) throws SqlException, IllegalAccessException {
+        //获取表名
+        Table table = (Table) clzz.getAnnotation(Table.class);
+        String tableName = table.name();
         MysqlHelper dbHelper = MysqlHelper.getInstance();
-        ResultSet rs = dbHelper.execQuery("select * from " + tableName + " limit " + limit + "," + start);
+        ResultSet rs = dbHelper.execQuery(sql);
         List<T> list = null;
         try {
             list = new ArrayList<T>();
@@ -70,12 +63,7 @@ public class BaseDao<T> {
                 T t = (T) clzz.newInstance();
                 for (String filed : colums) {
                     //mysql 数据库中int(2),int(11)都会拿回来的时候都是Long类型，How can I do?
-                    if (rs.getObject(rs.findColumn(filed)).getClass().equals(Long.class)) {
-                        Integer value = new Integer(rs.getInt(rs.findColumn(filed)));
-                        callSetter(t, filed, value);
-                    } else {
-                        callSetter(t, filed, rs.getObject(rs.findColumn(filed)));
-                    }
+                    callSetter(t, filed, rs.getObject(rs.findColumn(filed)));
                 }
                 System.out.println(new Gson().toJson(t));
                 list.add(t);
@@ -89,30 +77,7 @@ public class BaseDao<T> {
         return list;
     }
 
-    private void callSetter(T t, String fieldName, Object value) {
-        String setterName = "set" + fieldName.substring(0, 1).toUpperCase()
-                + fieldName.substring(1, fieldName.length());
-        try {
-            Class clzz = t.getClass();
-            Field field = clzz.getDeclaredField(fieldName);
-            Class type = field.getType();
-            //做更多基本类型检查
-            if (type == int.class) {
-                type = Integer.class;
-            }
-            Method method = clzz.getDeclaredMethod(setterName, type);
-            method.invoke(t, value);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-    }
-
+    @Override
     public T insert(T t) throws SqlException, IllegalAccessException {
         if (!t.getClass().isAnnotationPresent(Table.class)) {
             throw new SqlException(t, "对象不是实体类");
@@ -156,6 +121,31 @@ public class BaseDao<T> {
         return t;
     }
 
+    private void callSetter(T t, String fieldName, Object value) {
+        String setterName = "set" + fieldName.substring(0, 1).toUpperCase()
+                + fieldName.substring(1, fieldName.length());
+        try {
+            Class clzz = t.getClass();
+            Field field = clzz.getDeclaredField(fieldName);
+            Class type = field.getType();
+            //做更多基本类型检查
+            if (type == int.class) {
+                type = Integer.class;
+            }
+            Method method = clzz.getDeclaredMethod(setterName, type);
+            method.invoke(t, value);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     //属性名都是String
     private String[] getColums(Class clzz) throws SqlException, IllegalAccessException {
         Field[] fields = clzz.getDeclaredFields();
@@ -171,7 +161,7 @@ public class BaseDao<T> {
     }
 
     //只是声明为Object,具体类型未知，sorry啊。
-    public Object[][] getValues(T t) throws SqlException, IllegalAccessException {
+    private Object[][] getValues(T t) throws SqlException, IllegalAccessException {
         assert (isAutoKeyNull(t));
         if (!t.getClass().isAnnotationPresent(Table.class)) {
             throw new SqlException(t, "对象不是实体类");

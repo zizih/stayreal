@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>struggle, stayreal</title>
+    <link rel="stylesheet" href="public/css/common.css">
+    <link rel="stylesheet" href="public/css/index.css">
+    <link rel="stylesheet" href="public/css/server.css">
+    <link rel="stylesheet" href="public/css/about.css">
+    <script src="public/js/lib/jquery.js"></script>
+    <script src="public/js/lib/underscore.js"></script>
+    <script src="public/js/lib/backbone.js"></script>
+    <script src="public/js/component/network.js"></script>
+    <script src="public/js/app.js"></script>
+    <script src="public/js/config.js"></script>
+    <script src="public/js/Router.js"></script>
+    <script src="public/js/Model.js"></script>
+    <script src="public/js/View.js"></script>
+    <script src="public/js/lib/carousel.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li><a href="#i" id="header-nav-item0">i</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+      
+      <!--    index page    -->
+      <section id="page-index">
+        <div id="title">
+          <h1>iCode</h1>
+          <p>。。。。。。。。</p>
+        </div>
+		    <div class="content">
+		      <div class="input">
+            <input placeholder="有什么想吐槽?作者是个好人。Enter >>" id="comment" name="comment" size="40">
+          </div>
+          <ul class="font-gray" id="comments">
+          </ul>
+        </div>
+        <script type="text/template" id="comment-template">
+           <li class="comment">
+              <span class="time"><%= time %></span>
+              <span class="content"><%= content %></span>
+              <a href="javascript:void(0)" class='destroy'>X</a>
+            </li>
+        </script>
+      </section>
+      
+      <!--    i page    -->
+      <section id="page-i">
+        <div id="title">
+          <h1>iDevelop</h1>
+          <p>一直在成长，但不用心</p>
+          <!-- album -->
+          <div class="album">
+          </div>
+        </div>
+        <div class="content">
+          <div id="myworks" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myworks" data-slide="prev">
+              <span>&lt;</span>
+            </a>
+            <a class="right carousel-control" href="#myworks" data-slide="next">
+              <span>&gt;</span>
+            </a>
+          </div>
+        </div><!-- end content -->
+        <script type="text/template" id="works-item-template">
+          <% for(i in work) { %>
+            <div class="item <%= work[i].isFirst ? 'active' : '' %>">
+              <img src="<%= work[i].imgUrl %>" alt="<%= work[i].imgAlt || '' %>" data-href="<%= work[i].href %>"/>
+              <div class="carousel-caption">
+                <%= work[i].caption || '' %>
+              </div>
+            </div>     
+          <% } %>    
+        </script>
+        <script type="text/template" id="works-indicator-template">
+          <% for( i=0; i<len; i++) {%>
+           <li data-target="#myworks" data-slide-to="<%= i %>" <%= i === 0 ? 'class=\"active\"' : '' %> ></li>
+           <% } %>       
+        </script>
+        <script type="text/template" id="works-album-template">
+          <% for(i in album) %>
+          <a href="javascript:void(0);" data-tag-index="<%=album[i].tagId%>" <%= album[i].select ? 'class="select"' : ''%>><%= album[i].tagName %></a>
+        </script>
+      </section>
+      
+       <!--    server page    -->
+      <section id="page-server">
+        <div id="title">
+          <h1>iDemo</h1>
+          <p>试写Web Server通过Java Socket</p>
+        </div>
+        <div class="content">
+          <div class="server-item">
+            <span class="server-item-title">MySQL执行速度</span>
+            <div class="server-item-desc">
+              对三种数据库crd速度的测试，http请求到java的SocketServer
+            </div>
+            <div class="server-item-op">
+              <span>选择一种数据库：<a>mysql</a><a>derby</a><a>moogoDB</a></span>
+              <span><input type="number" name="insert"><a id="insert">insert</a></span>
+              <span><input type="number" name="select"><a>select</a></span>
+              <span><input type="number" name="delete"><a>delete</a></span>
+            </div>
+          </div>
+          <div class="server-item">
+            <span class="server-item-title">网络抓图</span>
+            <div class="server-item-desc">
+              通过java后台，调用python程序网络抓图
+            </div>
+             <div class="server-item-op">
+              <span>输入网站域名：<input type="text">&nbsp;<a>抓取</a></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="server-item">
+            <span class="server-item-title">GAME墓地</span>
+            <div class="server-item-desc">
+              很无聊地到了最后一关，不要以为有什么好结果
+            </div>
+            <div class="server-item-op">
+              <div></div>
+              <span>第一关： 猜测请求参数 >> 返回值包含锁的坐标 >> 点击锁的位置出现密码输入框 >> 请求进入</span>
+              <div class="game-one">
+              	<div class="game-one-pic"></div>
+              	URI:<input type="text"><a>获取数据</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </div><!-- end wrapper -->
+    
+    <div class="footer">
+      <div class="credits">
+        <span class="right">2013-10-31 start maintained by &mdash; <a href="https://github.com/zizih">hezi</a></span>
+      </div>
+    </div><!-- end footer -->
+    <script type="text/template" id="alert-template">
+      <div class="alert" style="top:<%=top%>;left:<%=left%>">
+        <%= firstContent %>
+      </div>
+    </script>
+    <script type="text/javascript">
+      app.init();
+      Backbone.history.start();
+    </script>
+  </body>
+</html>

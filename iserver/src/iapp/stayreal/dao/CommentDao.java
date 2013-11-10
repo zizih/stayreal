@@ -1,6 +1,9 @@
 package iapp.stayreal.dao;
 
 import iapp.model.Comment;
+import ilib.db.BaseDao;
+import ilib.app.IDao;
+import ilib.db.iexception.SqlException;
 
 import java.util.List;
 
@@ -11,37 +14,36 @@ import java.util.List;
  * Time: 9:28 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CommentDao implements IDao<Comment>{
+public class CommentDao extends BaseDao<Comment> implements IDao<Comment> {
 
 
     @Override
-    public List<Comment> get(int id) {
+    public List<Comment> get(int id) throws SqlException, IllegalAccessException {
         return null;
     }
 
     @Override
-    public List<Comment> all() {
-
-        return null;  
+    public List<Comment> all() throws SqlException, IllegalAccessException {
+        return fetch(Comment.class);
     }
 
     @Override
-    public List<Comment> all(int start, int limt) {
-        return null;  
+    public List<Comment> all(int start, int limt) throws SqlException, IllegalAccessException {
+        return null;
     }
 
     @Override
-    public List<Comment> insert(Comment model) {
-        return null;  
+    public List<Comment> add(Comment model) throws SqlException, IllegalAccessException {
+        return null;
     }
 
     @Override
-    public List<Comment> update(Comment model) {
-        return null;  
+    public List<Comment> update(Comment model) throws SqlException, IllegalAccessException {
+        return null;
     }
 
     @Override
-    public List<Comment> delete(int id) {
-        return null;  
+    public List<Comment> delete(int id) throws SqlException, IllegalAccessException {
+        return null;
     }
 }
