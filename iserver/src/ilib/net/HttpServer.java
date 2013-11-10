@@ -1,6 +1,6 @@
-package weblib.net;
+package ilib.net;
 
-import weblib.util.Log;
+import ilib.util.Log;
 
 import java.io.IOException;
 import java.net.ServerSocket;

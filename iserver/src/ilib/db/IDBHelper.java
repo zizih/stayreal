@@ -1,4 +1,4 @@
-package weblib.db;
+package ilib.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,7 +14,7 @@ public interface IDBHelper {
 
     public Connection createConnection();
 
-    public ResultSet execSQL(String sql);
+    public boolean execSQL(String sql);
 
     public ResultSet execQuery(String sql);
 

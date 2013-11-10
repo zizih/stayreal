@@ -1,4 +1,4 @@
-package weblib.util;
+package ilib.util;
 
 import java.io.*;
 
@@ -16,7 +16,7 @@ public class FileUtil {
 
     static {
         projPath = System.getProperty("user.dir");
-        viewsPath = projPath + "/iserver/src/webapp/views/";
+        viewsPath = projPath + "/iserver/src/iapp/views/";
     }
 
     /**

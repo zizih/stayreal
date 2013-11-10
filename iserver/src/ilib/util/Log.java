@@ -1,4 +1,4 @@
-package weblib.util;
+package ilib.util;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,4 +1,4 @@
-package weblib.db;
+package ilib.db;
 
 import java.sql.*;
 
@@ -44,16 +44,16 @@ public class MysqlHelper implements IDBHelper {
     }
 
     @Override
-    public ResultSet execSQL(String sql) {
+    public boolean execSQL(String sql) {
         try {
             Statement statment = conn.createStatement();
-            ResultSet rs = statment.executeQuery(sql);
+            boolean b = statment.execute(sql);
             statment.close();
-            return rs;
+            return b;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     @Override
