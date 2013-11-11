@@ -26,4 +26,4 @@ CREATE TABLE `comment`(
   PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='测试用';
 
-INSERT INTO comment(`TIME`,`CONTENT`) values('1384000055678', '单线程socket server处理http请求处理'),('1384001055678', '增加后台页面模板渲染');
+INSERT INTO comment(`TIME`,`CONTENT`) values('2013-11-7 22:15:23', '单线程socket server处理http请求处理'),('2013-11-9 15:16:02', '增加后台页面模板渲染');

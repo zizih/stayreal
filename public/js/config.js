@@ -65,7 +65,7 @@ app.config = {
         isFirst: true,
         imgUrl: './public/images/intern01.jpg',
         imgAlt: '1',
-        caption: '“三个月实习之后就可以拿到学分了”，离开前最真最傻的想法。'
+        caption: '“三个月实习之后就可以拿到学分了”, 怀抱着这样的心情迎来了UC的第一天。'
       },
       {
         imgUrl: './public/images/intern02.jpg',
@@ -109,17 +109,17 @@ app.config = {
       {
         imgUrl: './public/images/hope03.jpg',
         imgAlt: '1',
-        caption: '台上最闪耀，淡定不猥琐。'
+        caption: '台上最闪。'
       },
       {
         imgUrl: './public/images/hope04.JPG',
         imgAlt: '1',
-        caption: '持住大局。'
+        caption: '怎么抓拍都好看。'
       },
       {
         imgUrl: './public/images/hope05.JPG',
         imgAlt: '1',
-        caption: '摄像头注意到我。'
+        caption: '不被边缘化。'
       },
       {
         imgUrl: './public/images/hope06.jpg',
@@ -151,16 +151,16 @@ app.config = {
         imgAlt: '1',
         caption: '吉他厉害。'
       },
-      {
-        imgUrl: './public/images/hope.JPG',
-        imgAlt: '1',
-        caption: '父亲还在我身边'
-      }
       // {
-        // imgUrl: './public/images/hope12.jpg',
+        // imgUrl: './public/images/hope.JPG',
         // imgAlt: '1',
-        // caption: 'big breasts.'
-      // }
+        // caption: '父亲还在我身边'
+      // },
+      {
+        imgUrl: './public/images/hope12.jpg',
+        imgAlt: '1',
+        caption: 'A man and a lady.'
+      }
     ]
   },
   ablum: [

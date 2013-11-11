@@ -67,6 +67,14 @@ a.arrow-rigt:hover {
   color: #454545;
 }
 
+.font-gray a{
+  color: #454545;
+}
+
+.font-gray a:hover {
+  color: #888;
+}
+
 .mb0 {
   margin-bottom: 0px;
 }

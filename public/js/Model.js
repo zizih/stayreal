@@ -5,19 +5,24 @@ app.Model = function () {
     CommentModel: Backbone.Model.extend({
       defaults: function() {
         return {
-          time: this.curTime(),
-          content: ''
+          time: this.time(),
+          content: '',
+          id: 0
         }
       },
       initialize: function() {
       },
       updateTime: function() {
-        this.set('time', this.curTime());
+        this.set('time', this.time());
         return this;
       },
-      curTime: function () {
-        format = 'MM-dd hh:mm:ss';
-        time = new Date();
+      setTime: function(date) {
+        this.set('time', this.time(date));
+        return this;
+      },
+      time: function (date) {
+        format = 'yyyy-MM-dd hh:mm:ss';
+        time = date ? new Date(date) : new Date();
         var o = {
             'M+': time.getMonth() + 1,
             'd+': time.getDate(),

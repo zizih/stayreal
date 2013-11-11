@@ -8,14 +8,34 @@ app.View = function() {
     events: {
       'keypress #comment': 'edit',
       'keyup input': 'unedit',
-      'click #server-show': 'toServer' 
+      'click #to-demo': 'todemo' 
     },
     initialize: function() {
-      
+      if(!app.iAjax) {
+        app.iAjax = new iAjax();
+      }
+      var that = this;
+      app.iAjax.get({
+        url: 'fetchComments',
+        success: function (data) {
+          for(i in data) {
+            that.render(new app.constr.models.CommentModel({
+              content: data[i].content,
+              id: data[i].id 
+            }).setTime(data[i].time));            
+          }
+        },
+        err: function(err) {
+          console.log(err);
+        }
+      });
     },
     template: _.template($('#comment-template').html()),
     render: function() {
       return this;
+    },
+    render: function(model) {
+      $('#comments').append(this.template(model.toJSON()));
     },
     add: function(str) {
       this.model.commentModel.updateTime().set('content', str);
@@ -23,11 +43,15 @@ app.View = function() {
       this.save();
     },
     save: function () {
-      if(!app.iAjax) {
-        app.iAjax = new iAjax();
-      }
+      console.log(this.model.commentModel.toJSON());
+      var model = this.model.commentModel,
+        url = 'insertComment?content='
+          + model.get('content');
+          console.log(url);
       app.iAjax.get({
-        url: 'insert',
+        url: url,
+        //iserver post 请求还没有实现获取请求体
+        // data: this.model.commentModel.toJSON(),
         success: function (data) {
           console.log(data);
         },
@@ -42,6 +66,16 @@ app.View = function() {
         this.add($target.val());
         $target.val('');
       }
+    },
+    todemo: function(e) {
+      var alert = new AlertView();
+      alert.show({
+        top: (e.target.offsetTop + 200) + 'px',
+        left: (e.target.offsetLeft + 100) + 'px',
+        timeout: 1000,
+        firstContent: 'unfinished～',
+      });
+      location.href="#server";
     },
     show: function () {
       this.$el.show();

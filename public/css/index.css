@@ -170,13 +170,13 @@ input[type="checkbox"] {
   max-height: 220px;
 }
 
-#comments li{
+#comments li {
   width: 100%;
   list-style-type: none;
   text-align: left;
 }
 
-#comments a{
+#comments a {
   color: #ddd;
   background: #777;
   -moz-border-radius: 10px;
@@ -192,11 +192,16 @@ input[type="checkbox"] {
   text-align: center;
 }
 
-#comments a:hover{
+#comments a:hover {
   color: #000;
   background: #666;
 }
 
 li.comment {
   margin: 5px;
+  color: #ddd;
+}
+
+.destroy {
+  display: none;
 }
