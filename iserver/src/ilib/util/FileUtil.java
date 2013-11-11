@@ -16,8 +16,8 @@ public class FileUtil {
 
     static {
         projPath = System.getProperty("user.dir");
-        //viewsPath = projPath + "/iserver/src/iapp/views/";
-        viewsPath = projPath + "/";
+        viewsPath = projPath + "/iserver/src/iapp/views/";
+//        viewsPath = projPath + "/";
     }
 
     /**
