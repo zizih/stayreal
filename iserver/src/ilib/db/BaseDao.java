@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,12 +90,15 @@ public class BaseDao<T> implements IBaseDao<T> {
         StringBuilder colums = new StringBuilder("(");
         StringBuilder values = new StringBuilder("(");
         int kvSize = 0;
-        String[] columsStr = getColums(t.getClass());
-        Object[][] valuesObj = getValues(t);
+        String[] columsStr = getColums(t.getClass(), "id");
+        Object[][] valuesObj = getValues(t, "id");
         if (columsStr.length != valuesObj.length) {
             throw new SqlException(t, "参数长度不对");
         }
         for (int i = 0; i < columsStr.length; i++) {
+            if (columsStr[i] == null || columsStr[i] == "") {
+                continue;
+            }
             if (!(kvSize == 0)) {
                 colums.append(",");
                 values.append(",");
@@ -103,11 +107,14 @@ public class BaseDao<T> implements IBaseDao<T> {
             }
             colums.append("`").append(columsStr[i]).append("`");
             //这里要对值做不同的append。
-            if (valuesObj[i][1].equals(String.class)) {
-                values.append("'").append(valuesObj[i][0]).append("'");
-            } else {
+            Object tmp = valuesObj[i][1];
+            if (tmp.equals(Integer.class) || tmp.equals(int.class)) {
                 values.append(valuesObj[i][0]);
+            } else {
+                values.append("'").append(valuesObj[i][0]).append("'");
             }
+            System.out.println("value: " + valuesObj[i][0]);
+            System.out.println("value: " + valuesObj[i][1]);
 
         }
         colums.append(") ");
@@ -147,12 +154,23 @@ public class BaseDao<T> implements IBaseDao<T> {
 
 
     //属性名都是String
-    private String[] getColums(Class clzz) throws SqlException, IllegalAccessException {
+    private String[] getColums(Class clzz, String... excludes) throws SqlException, IllegalAccessException {
         Field[] fields = clzz.getDeclaredFields();
         String[] colums = new String[fields.length];
         for (int i = 0; i < fields.length; i++) {
             Field f = fields[i];
             f.setAccessible(true);
+
+            boolean ifContinue = false;
+            for (String col : excludes) {
+                if (f.getName().equals(col)) {
+                    ifContinue = true;
+                    break;
+                }
+            }
+            if (ifContinue) continue;
+
+            //认为非@transparent属性都是数据库字段
             if (!f.isAnnotationPresent(Transparent.class)) {
                 colums[i] = f.getName();
             }
@@ -161,7 +179,7 @@ public class BaseDao<T> implements IBaseDao<T> {
     }
 
     //只是声明为Object,具体类型未知，sorry啊。
-    private Object[][] getValues(T t) throws SqlException, IllegalAccessException {
+    private Object[][] getValues(T t, String... excludes) throws SqlException, IllegalAccessException {
         assert (isAutoKeyNull(t));
         if (!t.getClass().isAnnotationPresent(Table.class)) {
             throw new SqlException(t, "对象不是实体类");
@@ -171,12 +189,31 @@ public class BaseDao<T> implements IBaseDao<T> {
         for (int i = 0; i < fields.length; i++) {
             Field f = fields[i];
             f.setAccessible(true);
+
             try {
+                boolean ifContinue = false;
+                for (String col : excludes) {
+                    if (f.getName().equals(col)) {
+                        ifContinue = true;
+                        break;
+                    }
+                }
+                if (ifContinue) continue;
                 //认为非@transparent属性都是数据库字段
                 if (!f.isAnnotationPresent(Transparent.class)) {
                     values[i][0] = f.get(t);
                     values[i][1] = f.getType();
                 }
+
+                if (f.isAnnotationPresent(Colum.class)) {
+                    Colum colum = f.getAnnotation(Colum.class);
+                    if (colum.type().equals("DATETIME")) {
+                        SimpleDateFormat spdf = new SimpleDateFormat(colum.format());
+                        values[i][0] = spdf.format(f.get(t));
+                        values[i][1] = colum.type();
+                    }
+                }
+
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }

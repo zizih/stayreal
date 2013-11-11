@@ -16,10 +16,8 @@ public class Vip {
     @Key(auto = true, name = "id")
     Long id;
 
-    @Colum(name = "name")
     String name;
 
-    @Colum(name = "desc")
     String desc;
 
     boolean humorous;

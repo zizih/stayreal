@@ -5,8 +5,10 @@ import ilib.app.BaseController;
 import ilib.util.FileUtil;
 import ilib.util.Log;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
@@ -45,15 +47,19 @@ public class SocketThread extends Thread {
             //处理public资源请求,不需要暴露给controller处理
             if (uri.startsWith("/public/css")) {
                 renderCSS(FileUtil.fileIS(uri));
+                return;
             }
             if (uri.startsWith("/public/js")) {
                 renderJS(FileUtil.fileIS(uri));
+                return;
             }
             if (uri.startsWith("/public/images")) {
                 renderImage(FileUtil.fileIS(uri));
+                return;
             }
             if (uri.startsWith("/public/fonts")) {
                 renderFont(FileUtil.fileIS(uri));
+                return;
             }
 
 
@@ -72,33 +78,40 @@ public class SocketThread extends Thread {
                         method.invoke(controller);
                         return;
                     }
-                    //匹配含有get参数的路径
                     int qIndex = uri.indexOf("?");
                     String path = uri.substring(1, qIndex == -1 ? uri.length() : qIndex);
                     if (path.equals(method.getName())) {
 
-                        //获取controller参数个数
-                        int paramsLength = method.getParameterTypes().length;
-                        String[] paramsValues = new String[paramsLength];
+                        //匹配get请求
+                        if (header.getMethod().equals("Get")) {
 
-                        String[] params = null;
-                        if (qIndex != -1) {
-                            String paramstr = uri.substring(qIndex + 1, uri.length());
-                            params = paramstr.split("&");
-                        }
+                            //获取controller参数个数
+                            int paramsLength = method.getParameterTypes().length;
+                            String[] paramsValues = new String[paramsLength];
 
-                        //长度以controller请求中的参数长度为准
-                        for (int i = 0; i < paramsLength; i++) {
-                            if (params == null || params.length < i + 1) {
-                                paramsValues[i] = null;
-                            } else {
-                                paramsValues[i] = params[i].substring(params[i].indexOf("=") + 1,
-                                        params[i].length());
+                            String[] params = null;
+                            if (qIndex != -1) {
+                                String paramstr = uri.substring(qIndex + 1, uri.length());
+                                params = paramstr.split("&");
                             }
+
+                            //长度以controller请求中的参数长度为准
+                            for (int i = 0; i < paramsLength; i++) {
+                                if (params == null || params.length < i + 1) {
+                                    paramsValues[i] = null;
+                                } else {
+                                    paramsValues[i] = params[i].substring(params[i].indexOf("=") + 1,
+                                            params[i].length());
+                                }
+                            }
+                            controller.setResponOS(client.getOutputStream());
+                            method.invoke(controller, paramsValues);
+                            return;
                         }
-                        controller.setResponOS(client.getOutputStream());
-                        method.invoke(controller, paramsValues);
-                        return;
+
+                        //匹配Post请求
+                        if (header.getMethod().equals("POST")) {
+                        }
                     }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

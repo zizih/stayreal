@@ -17,4 +17,8 @@ public @interface Colum {
 
     public String name();
 
+    public String format();
+
+    public String type();
+
 }

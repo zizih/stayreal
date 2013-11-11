@@ -33,8 +33,8 @@ public class CommentDao extends BaseDao<Comment> implements IDao<Comment> {
     }
 
     @Override
-    public List<Comment> add(Comment model) throws SqlException, IllegalAccessException {
-        return null;
+    public Comment add(Comment model) throws SqlException, IllegalAccessException {
+        return insert(model);
     }
 
     @Override

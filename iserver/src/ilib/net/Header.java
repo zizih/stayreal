@@ -25,6 +25,7 @@ public class Header {
     private String encoding;//请求的编码方式  对应HTTP请求中的Accept-Encoding
     private String charset;//请求的字符编码  对应HTTP请求中的Accept-Charset
     private String accept;// 对应HTTP请求中的Accept;
+    private Integer contentLength;// poest请求的请求体消息长度
 
 
     public Header(InputStream is) {
@@ -88,8 +89,19 @@ public class Header {
         } else if (s.startsWith("Connection:")) {
             String connection = s.substring("Connection:".length() + 1);
             setConnection(connection);
+        } else if (s.startsWith("Content-Length:")) {
+            String connection = s.substring("Content-Length:".length() + 1);
+            setContentLength(Integer.parseInt(connection));
         }
 
+    }
+
+    public void setContentLength(Integer contentLength) {
+        this.contentLength = contentLength;
+    }
+
+    public Integer getContentLength() {
+        return contentLength;
     }
 
     public void setAccept(String accept) {

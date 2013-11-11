@@ -19,7 +19,7 @@ public interface IDao<T> {
 
     public abstract List<T> all(int start, int limt) throws SqlException, IllegalAccessException;
 
-    public abstract List<T> add(T model) throws SqlException, IllegalAccessException;
+    public abstract T add(T model) throws SqlException, IllegalAccessException;
 
     public abstract List<T> update(T model) throws SqlException, IllegalAccessException;
 

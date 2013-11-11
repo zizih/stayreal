@@ -15,8 +15,13 @@ import java.util.List;
  */
 public class CommentService {
 
+    //dao实例希望能够google guice吗？
     public static List<Comment> all() throws SqlException, IllegalAccessException {
         return new CommentDao().all();
+    }
+
+    public static Comment add(Comment comment) throws SqlException, IllegalAccessException {
+        return new CommentDao().add(comment);
     }
 
 }

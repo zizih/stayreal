@@ -1,12 +1,11 @@
 package iapp.controller;
 
 import iapp.model.Comment;
-import iapp.model.Vip;
 import iapp.stayreal.service.CommentService;
-import iapp.stayreal.service.VipService;
 import ilib.app.BaseController;
 import ilib.db.iexception.SqlException;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +20,37 @@ public class Application extends BaseController {
     public void index() {
         render("index.html");
 //        renderFile("index.html");
+    }
+
+    /**
+     * 首页comments列表
+     */
+    public void fetchComments() {
+        List<Comment> comments = null;
+        try {
+            comments = CommentService.all();
+        } catch (SqlException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        renderJSON(comments);
+    }
+
+    public void insertComment(String content) {
+        Comment comment = new Comment();
+        comment.setTime(new Date());
+        comment.setContent(content);
+        try {
+            CommentService.add(comment);
+            renderJSON("Insert OK");
+            return;
+        } catch (SqlException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        renderJSON("Insert Err");
     }
 
     public void insert(String name, String jack) {

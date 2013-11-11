@@ -2,6 +2,9 @@ package iapp.model;
 
 import ilib.db.iannotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created with IntelliJ IDEA.
  * User: rain
@@ -13,11 +16,12 @@ import ilib.db.iannotation.*;
 public class Comment {
 
     @Key(auto = true, name = "id")
-    Long id;
+    private Long id;
 
-    String time;
+    @Colum(name = "time", type = "DATETIME", format = "yyyy-MM-dd HH:mm:ss")
+    private Date time;
 
-    String content;
+    private String content;
 
     public void setContent(String content) {
         this.content = content;
@@ -27,7 +31,7 @@ public class Comment {
         this.id = id;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 
@@ -39,7 +43,7 @@ public class Comment {
         return id;
     }
 
-    public String getTime() {
-        return time;
+    public Date getTime() {
+        return this.time;
     }
 }

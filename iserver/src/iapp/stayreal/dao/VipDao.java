@@ -33,7 +33,7 @@ public class VipDao extends BaseDao<Vip> implements IDao<Vip> {
     }
 
     @Override
-    public List<Vip> add(Vip model) throws SqlException, IllegalAccessException {
+    public Vip add(Vip model) throws SqlException, IllegalAccessException {
         return null;
     }
 
