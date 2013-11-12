@@ -19,7 +19,6 @@ public class Application extends BaseController {
 
     public void index() {
         render("index.html");
-//        renderFile("index.html");
     }
 
     /**

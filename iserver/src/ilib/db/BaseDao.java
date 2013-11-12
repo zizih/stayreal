@@ -22,35 +22,34 @@ import ilib.util.Log;
  * Time: 9:52 PM
  * 数据库的基本操作封装，由关系型操作到对象操作
  */
-public class BaseDao<T> implements IBaseDao<T> {
+public class BaseDao<T> {
 
 
-    @Override
-    public List<T> fetch(Class clzz) throws SqlException, IllegalAccessException {
+    protected List<T> fetch(Class clzz) throws SqlException, IllegalAccessException {
         //获取表名
         Table table = (Table) clzz.getAnnotation(Table.class);
         String tableName = table.name();
         return fetch(clzz, "select * from " + tableName);
     }
 
-    @Override
-    public T fetch(Class clzz, int id) throws SqlException, IllegalAccessException {
+
+    protected T fetch(Class clzz, int id) throws SqlException, IllegalAccessException {
         //获取表名
         Table table = (Table) clzz.getAnnotation(Table.class);
         String tableName = table.name();
         return fetch(clzz, "select * from " + tableName + "where id=" + id).get(0);
     }
 
-    @Override
-    public List<T> fetch(Class clzz, int limit, int start) throws SqlException, IllegalAccessException {
+
+    protected List<T> fetch(Class clzz, int limit, int start) throws SqlException, IllegalAccessException {
         //获取表名
         Table table = (Table) clzz.getAnnotation(Table.class);
         String tableName = table.name();
         return fetch(clzz, "select * from " + tableName + " limit " + limit + "," + start);
     }
 
-    @Override
-    public List<T> fetch(Class clzz, String sql) throws SqlException, IllegalAccessException {
+
+    protected List<T> fetch(Class clzz, String sql) throws SqlException, IllegalAccessException {
         //获取表名
         Table table = (Table) clzz.getAnnotation(Table.class);
         String tableName = table.name();
@@ -78,8 +77,8 @@ public class BaseDao<T> implements IBaseDao<T> {
         return list;
     }
 
-    @Override
-    public T insert(T t) throws SqlException, IllegalAccessException {
+
+    protected T insert(T t) throws SqlException, IllegalAccessException {
         if (!t.getClass().isAnnotationPresent(Table.class)) {
             throw new SqlException(t, "对象不是实体类");
         }
@@ -222,7 +221,7 @@ public class BaseDao<T> implements IBaseDao<T> {
     }
 
     //判断自增主键是否正确
-    public boolean isAutoKeyNull(T t) throws SqlException, IllegalAccessException {
+    protected boolean isAutoKeyNull(T t) throws SqlException, IllegalAccessException {
         Field[] fields = t.getClass().getDeclaredFields();
         for (Field f : fields) {
             try {
