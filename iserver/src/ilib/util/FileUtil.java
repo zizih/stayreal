@@ -11,24 +11,16 @@ import java.io.*;
  */
 public class FileUtil {
 
-    private static String projPath;
-    private static String viewsPath;
-
-    static {
-        projPath = System.getProperty("user.dir");
-        viewsPath = projPath + "/iserver/src/iapp/views/";
-//        viewsPath = projPath + "/";
-    }
+    private static String projPath = System.getProperty("user.dir");
 
     /**
      * 读取一个文件的内容
      */
     public static String views(String fileName) {
-        return fileStr(viewsPath + fileName);
+        return fileStr(projPath + Conf.getValue("viewsRoot") + fileName);
     }
 
     public static String staticFile(String absPath) {
-        System.out.println(projPath + absPath);
         return fileStr(projPath + absPath).toString();
     }
 
