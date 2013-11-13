@@ -34,6 +34,11 @@ public class BaseController {
         renderUtil("text/html", "<404> iServer Sorry!");
     }
 
+    public void render500() {
+        respon.println("HTTP/1.1 500 服务器错误");
+        renderUtil("text/html", "<500> iServer Sorry!");
+    }
+
     public void renderOs2Js(InputStream is) {
         respon.println("HTTP/1.1 200 OK");
         respon.println("Content-Type:text/javascript;charset=UTF8");

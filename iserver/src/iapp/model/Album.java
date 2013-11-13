@@ -18,6 +18,16 @@ public class Album {
 
     private String tagname;
 
+    private boolean select;
+
+    public boolean getSelect() {
+        return select;
+    }
+
+    public void setSelect(boolean select) {
+        this.select = select;
+    }
+
     public void setTagid(Long tagid) {
         this.tagid = tagid;
     }

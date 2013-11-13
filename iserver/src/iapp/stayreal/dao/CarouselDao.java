@@ -20,6 +20,10 @@ public class CarouselDao extends BaseDao<Carousel> {
         return fetch(Carousel.class, id);
     }
 
+    public List<Carousel> get(String key, Object value) throws SqlException, IllegalAccessException {
+        return fetch(Carousel.class, key, value);
+    }
+
     public List<Carousel> all() throws SqlException, IllegalAccessException {
         return fetch(Carousel.class);
     }

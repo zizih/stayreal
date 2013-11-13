@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class AlbumService {
 
-    public List<Album> all() throws SqlException, IllegalAccessException {
+    public static  List<Album> all() throws SqlException, IllegalAccessException {
         return new AlbumDao().all();
     }
 }

@@ -1,12 +1,15 @@
 package iapp.controller;
 
+import iapp.model.Album;
+import iapp.model.Carousel;
 import iapp.model.Comment;
+import iapp.stayreal.service.AlbumService;
+import iapp.stayreal.service.CarouselService;
 import iapp.stayreal.service.CommentService;
 import ilib.app.BaseController;
 import ilib.db.iexception.SqlException;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,6 +22,30 @@ public class Application extends BaseController {
 
     public void index() {
         render("index.html");
+    }
+
+    /**
+     * 首页ablum & carousel列表
+     */
+    public void fetchAlbums() {
+        try {
+            List<Album> albums = AlbumService.all();
+            Map<String, List> map = new HashMap<String, List>();
+            map.put("albums", albums);
+
+            List carousels = new ArrayList();
+            for (Album album : albums) {
+                List<Carousel> cs = CarouselService.get("albumid", album.getTagid());
+                carousels.add(cs);
+            }
+            map.put("carousels", carousels);
+            renderJSON(map);
+        } catch (SqlException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        render500();
     }
 
     /**

@@ -1,9 +1,7 @@
 package iapp.stayreal.service;
 
 import iapp.model.Carousel;
-import iapp.model.Comment;
 import iapp.stayreal.dao.CarouselDao;
-import ilib.db.BaseDao;
 import ilib.db.iexception.SqlException;
 
 import java.util.List;
@@ -17,12 +15,8 @@ import java.util.List;
  */
 public class CarouselService {
 
-    public static Carousel get(int id) throws SqlException, IllegalAccessException {
-        return new CarouselDao().get(id);
+    public static List<Carousel> get(String key, Object value) throws SqlException, IllegalAccessException {
+        return new CarouselDao().get(key, value);
     }
 
-
-    public static List<Carousel> all() throws SqlException, IllegalAccessException {
-        return new CarouselDao().all();
-    }
 }

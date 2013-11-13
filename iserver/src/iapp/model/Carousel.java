@@ -16,6 +16,10 @@ public class Carousel {
     @Key(auto = true, name = "id")
     private Long id;
 
+    private Integer albumid;
+
+    private boolean isfirst;
+
     private String imgurl;
 
     private String imgalt;
@@ -23,6 +27,22 @@ public class Carousel {
     private String href;
 
     private String caption;
+
+    public boolean getIsfirst() {
+        return isfirst;
+    }
+
+    public void setIsfirst(boolean isfirst) {
+        this.isfirst = isfirst;
+    }
+
+    public void setAlbumid(Integer albumid) {
+        this.albumid = albumid;
+    }
+
+    public Integer getAlbumid() {
+        return albumid;
+    }
 
     public void setCaption(String caption) {
         this.caption = caption;

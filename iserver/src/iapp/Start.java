@@ -11,7 +11,7 @@ import ilib.net.HttpServer;
  */
 public class Start {
 
-    private static int PORT = 9600;
+    private static int PORT = 9800;
 
     public static void main(String[] args) {
         custom(args);

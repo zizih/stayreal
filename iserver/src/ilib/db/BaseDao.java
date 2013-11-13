@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import ilib.db.iannotation.*;
 import ilib.db.iexception.SqlException;
@@ -32,14 +33,32 @@ public class BaseDao<T> {
         return fetch(clzz, "select * from " + tableName);
     }
 
-
     protected T fetch(Class clzz, int id) throws SqlException, IllegalAccessException {
         //获取表名
         Table table = (Table) clzz.getAnnotation(Table.class);
         String tableName = table.name();
-        return fetch(clzz, "select * from " + tableName + "where id=" + id).get(0);
+        return fetch(clzz, "select * from " + tableName + " where id=" + id).get(0);
     }
 
+    /**
+     * 现在还没实现
+     *
+     * @param clzz
+     * @param kv
+     * @return
+     * @throws SqlException
+     * @throws IllegalAccessException
+     */
+    protected T fetch(Class clzz, Map kv) throws SqlException, IllegalAccessException {
+        return null;
+    }
+
+    protected List<T> fetch(Class clzz, String key, Object value) throws SqlException, IllegalAccessException {
+        //获取表名
+        Table table = (Table) clzz.getAnnotation(Table.class);
+        String tableName = table.name();
+        return fetch(clzz, "select * from " + tableName + " where " + key + "=" + value);
+    }
 
     protected List<T> fetch(Class clzz, int limit, int start) throws SqlException, IllegalAccessException {
         //获取表名
@@ -51,8 +70,6 @@ public class BaseDao<T> {
 
     protected List<T> fetch(Class clzz, String sql) throws SqlException, IllegalAccessException {
         //获取表名
-        Table table = (Table) clzz.getAnnotation(Table.class);
-        String tableName = table.name();
         MysqlHelper dbHelper = MysqlHelper.getInstance();
         ResultSet rs = dbHelper.execQuery(sql);
         List<T> list = null;
@@ -65,9 +82,9 @@ public class BaseDao<T> {
                     //mysql 数据库中int(2),int(11)都会拿回来的时候都是Long类型，How can I do?
                     callSetter(t, filed, rs.getObject(rs.findColumn(filed)));
                 }
-                System.out.println(new Gson().toJson(t));
                 list.add(t);
             }
+            Log.i("iserver BaseDao提示:执行\"" + sql + "\"\n得到结果：" + new Gson().toJson(list));
             rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -112,8 +129,6 @@ public class BaseDao<T> {
             } else {
                 values.append("'").append(valuesObj[i][0]).append("'");
             }
-            System.out.println("value: " + valuesObj[i][0]);
-            System.out.println("value: " + valuesObj[i][1]);
 
         }
         colums.append(") ");
