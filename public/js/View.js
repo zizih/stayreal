@@ -34,7 +34,7 @@ app.View = function() {
           top : 500 + 'px',
           left : 500 + 'px',
           timeout : 3000,
-          firstContent : '不要ajax请求报错，先运行iserver吖  ~ ^_^ .... ',
+          firstContent : 'ajax报错，因为没有运行iserver吖  ~ ^_^ .... ',
         });
       }
     },
@@ -78,7 +78,7 @@ app.View = function() {
         top : (e.target.offsetTop + 200) + 'px',
         left : (e.target.offsetLeft + 100) + 'px',
         timeout : 1000,
-        firstContent : 'Unfinished Page ～ O_O ~',
+        firstContent : 'Unfinished Page ～ O_O ~\n 同时github.io只有前端' ,
       });
       location.href = "#server";
     },
@@ -96,7 +96,6 @@ app.View = function() {
   });
 
   var IView = Backbone.View.extend({
-
     el : $('#page-i'),
     initialize : function() {
       var item0 = $('#header-nav-item0');
@@ -169,19 +168,22 @@ app.View = function() {
               $target.attr('data-src','server').html('切换到前端');
             },
             err : function(err) {
-              console.log(err);
+              this.alertErr(err);
             }
           });
         } catch (ex) {
-          var alert = new AlertView();
-          alert.show({
-            top : 500 + 'px',
-            left : 500 + 'px',
-            timeout : 2000,
-            firstContent : '没有可请求的后台吖 ～ ~',
-          });  
+          this.alertErr(ex);
         }
       }
+    },
+    alertErr: function(err) {
+      var alert = new AlertView();
+      alert.show({
+        top : 500 + 'px',
+        left : 500 + 'px',
+        timeout : 2000,
+        firstContent : '没有可请求的后台吖 ～ ~\n' + err,
+      }); 
     }
   });
 
