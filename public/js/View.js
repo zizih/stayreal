@@ -173,7 +173,13 @@ app.View = function() {
             }
           });
         } catch (ex) {
-          //deal with ex  
+          var alert = new AlertView();
+          alert.show({
+            top : 500 + 'px',
+            left : 500 + 'px',
+            timeout : 2000,
+            firstContent : '没有可请求的后台吖 ～ ~',
+          });  
         }
       }
     }

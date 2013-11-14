@@ -107,14 +107,19 @@ app.config = {
         caption: '不被边缘化。'
       },
       {
+        imgurl: './public/images/reality.png',
+        imgalt: '1',
+        caption: '不用逃经济和管理。'
+      },
+      {
         imgurl: './public/images/hope02.JPG',
         imgalt: '1',
-        caption: '背影好看些。'
+        caption: '一心编程，背影好看些。'
       },
       {
         imgurl: './public/images/hope03.jpg',
         imgalt: '1',
-        caption: '注意形象。'
+        caption: '上台前注意形象。'
       },
       {
         imgurl: './public/images/hope.jpg',
@@ -132,9 +137,14 @@ app.config = {
         caption: '有美丽回眸，长发飘飘。。'
       },
       {
+        imgurl: './public/images/reality01.png',
+        imgalt: '1',
+        caption: '不封闭，不自我高傲。'
+      },
+      {
         imgurl: './public/images/hope08.jpg',
         imgalt: '1',
-        caption: '有女神的智商。'
+        caption: '有女神的大智慧。'
       },
       {
         imgurl: './public/images/hope06.jpg',
@@ -149,7 +159,7 @@ app.config = {
       {
         imgurl: './public/images/hope14.png',
         imgalt: '1',
-        caption: '有人替我留念。'
+        caption: '有同伴同行,有同伴留念。'
       },
       {
         imgurl: './public/images/hope10.jpg',
