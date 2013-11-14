@@ -137,11 +137,6 @@ app.config = {
         caption: '有美丽回眸，长发飘飘。。'
       },
       {
-        imgurl: './public/images/reality01.png',
-        imgalt: '1',
-        caption: '不封闭，不自我高傲。'
-      },
-      {
         imgurl: './public/images/hope08.jpg',
         imgalt: '1',
         caption: '有女神的大智慧。'
