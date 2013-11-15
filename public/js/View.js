@@ -34,7 +34,7 @@ app.View = function() {
           top : 500 + 'px',
           left : 500 + 'px',
           timeout : 3000,
-          firstContent : 'ajax报错，因为没有运行iserver吖  ~ ^_^ .... ',
+          firstContent : 'ajax报错，没有运行iserver ~ ^_^ .... ',
         });
       }
     },
@@ -168,7 +168,7 @@ app.View = function() {
               $target.attr('data-src','server').html('切换到前端');
             },
             err : function(err) {
-              this.alertErr(err);
+              that.alertErr(err);
             }
           });
         } catch (ex) {
