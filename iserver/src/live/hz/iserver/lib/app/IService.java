@@ -1,4 +1,4 @@
-package ilib.app;
+package live.hz.iserver.lib.app;
 
 import java.util.List;
 

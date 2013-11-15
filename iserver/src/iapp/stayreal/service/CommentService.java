@@ -2,7 +2,7 @@ package iapp.stayreal.service;
 
 import iapp.model.Comment;
 import iapp.stayreal.dao.CommentDao;
-import ilib.db.iexception.SqlException;
+import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;
 

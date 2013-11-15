@@ -1,4 +1,4 @@
-package ilib.db.iannotation;
+package live.hz.iserver.lib.db.iannotation;
 
 import java.lang.annotation.*;
 

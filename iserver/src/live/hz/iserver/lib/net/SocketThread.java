@@ -1,14 +1,12 @@
-package ilib.net;
+package live.hz.iserver.lib.net;
 
 import iapp.controller.Application;
-import ilib.app.BaseController;
-import ilib.util.FileUtil;
-import ilib.util.Log;
+import live.hz.iserver.lib.app.BaseController;
+import live.hz.iserver.lib.util.FileUtil;
+import live.hz.iserver.lib.util.Log;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;

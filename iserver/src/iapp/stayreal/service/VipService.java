@@ -2,7 +2,7 @@ package iapp.stayreal.service;
 
 import iapp.stayreal.dao.VipDao;
 import iapp.model.Vip;
-import ilib.db.iexception.SqlException;
+import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;
 

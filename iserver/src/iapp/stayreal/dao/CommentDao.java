@@ -1,9 +1,9 @@
 package iapp.stayreal.dao;
 
 import iapp.model.Comment;
-import ilib.db.BaseDao;
-import ilib.app.IDao;
-import ilib.db.iexception.SqlException;
+import live.hz.iserver.lib.db.BaseDao;
+import live.hz.iserver.lib.app.IDao;
+import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;
 

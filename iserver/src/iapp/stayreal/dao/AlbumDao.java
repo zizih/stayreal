@@ -1,8 +1,8 @@
 package iapp.stayreal.dao;
 
 import iapp.model.Album;
-import ilib.db.BaseDao;
-import ilib.db.iexception.SqlException;
+import live.hz.iserver.lib.db.BaseDao;
+import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;
 

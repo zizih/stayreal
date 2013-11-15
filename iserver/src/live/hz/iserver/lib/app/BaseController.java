@@ -1,8 +1,8 @@
-package ilib.app;
+package live.hz.iserver.lib.app;
 
 import com.google.gson.Gson;
-import ilib.net.Header;
-import ilib.util.FileUtil;
+import live.hz.iserver.lib.net.Header;
+import live.hz.iserver.lib.util.FileUtil;
 
 import java.io.*;
 

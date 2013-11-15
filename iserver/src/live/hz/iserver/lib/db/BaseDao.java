@@ -1,4 +1,4 @@
-package ilib.db;
+package live.hz.iserver.lib.db;
 
 import com.google.gson.Gson;
 
@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import ilib.db.iannotation.*;
-import ilib.db.iexception.SqlException;
-import ilib.util.Log;
+import live.hz.iserver.lib.db.iannotation.*;
+import live.hz.iserver.lib.db.iexception.SqlException;
+import live.hz.iserver.lib.util.Log;
 
 /**
  * Created with IntelliJ IDEA.

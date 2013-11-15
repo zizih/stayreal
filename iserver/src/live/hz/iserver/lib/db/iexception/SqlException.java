@@ -1,4 +1,4 @@
-package ilib.db.iexception;
+package live.hz.iserver.lib.db.iexception;
 
 import com.google.gson.Gson;
 

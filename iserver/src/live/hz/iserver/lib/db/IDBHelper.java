@@ -1,4 +1,4 @@
-package ilib.db;
+package live.hz.iserver.lib.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

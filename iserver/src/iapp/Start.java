@@ -1,6 +1,7 @@
 package iapp;
 
-import ilib.net.HttpServer;
+import live.hz.iserver.lib.net.HttpServer;
+import live.hz.iserver.lib.util.Conf;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,9 +12,10 @@ import ilib.net.HttpServer;
  */
 public class Start {
 
-    private static int PORT = 9800;
+    private static int PORT;
 
     public static void main(String[] args) {
+        PORT = Integer.parseInt(Conf.getValue("http.port"));
         custom(args);
         HttpServer server = new HttpServer(PORT);
         server.start();

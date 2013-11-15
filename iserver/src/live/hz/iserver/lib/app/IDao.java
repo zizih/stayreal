@@ -1,6 +1,6 @@
-package ilib.app;
+package live.hz.iserver.lib.app;
 
-import ilib.db.iexception.SqlException;
+import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;
 

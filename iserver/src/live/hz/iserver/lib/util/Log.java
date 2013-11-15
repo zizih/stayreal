@@ -1,4 +1,4 @@
-package ilib.util;
+package live.hz.iserver.lib.util;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,4 +1,4 @@
-package ilib.util;
+package live.hz.iserver.lib.util;
 
 import java.io.*;
 

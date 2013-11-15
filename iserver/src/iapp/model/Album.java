@@ -1,7 +1,7 @@
 package iapp.model;
 
-import ilib.db.iannotation.Key;
-import ilib.db.iannotation.Table;
+import live.hz.iserver.lib.db.iannotation.Key;
+import live.hz.iserver.lib.db.iannotation.Table;
 
 /**
  * Created with IntelliJ IDEA.
