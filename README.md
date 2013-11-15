@@ -1,3 +1,9 @@
+
+Java知识： Socket，http协议，多线程，反射，注解 
+
+
+
+
 gh-pages分支： 在线看，只有前端 [online view](http://zizih.github.com/stayreal)
 
 
