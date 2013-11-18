@@ -275,8 +275,8 @@ app.View = function() {
       this.$el.show();
       return this;
     },
-    video: function() {
-      window.open("/ilike.html");
+    video: function(e) {
+      window.open($(e.target).find('source').attr('src'));
     }
   });
 
