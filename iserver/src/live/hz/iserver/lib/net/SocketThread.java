@@ -133,7 +133,7 @@ public class SocketThread implements Runnable {
         try {
             if (client != null && !client.isClosed() && controller != null) {
                 controller.setResponOS(client.getOutputStream());
-                controller.render404();
+                controller.render500();
             }
             socket.close();
         } catch (IOException e) {

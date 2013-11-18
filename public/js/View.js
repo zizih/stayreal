@@ -233,19 +233,14 @@ app.View = function() {
       'mouseout .server-item .server-item-title' : 'hidedesc',
       'click .server-item .server-item-title' : 'showop',
       'dblclick .server-item .server-item-title' : 'hideop',
-      'click #insert' : 'insert'
+      'click #next-video' : 'nextvideo'
     },
     template : {
       //_.template($('#').html())
     },
-    insert : function() {
-      $.ajax({
-        type : 'get',
-        url : 'insert?name=rain&jack=arron',
-        success : function(data) {
-          console.log(data);
-        }
-      });
+    nextvideo: function() {
+      $('#video-ilike').toggle();
+      $('#video-iserver').toggle();
     },
     showdesc : function(e) {
       $(e.target).next().show();

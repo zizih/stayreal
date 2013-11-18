@@ -114,17 +114,28 @@
           <p>
             和后台的交互演示不了，录了视频不过有点大
           </p>
-          <span style="color: #777;">全屏会更清晰</span>
+          <span style="color: #777;">全屏会更清晰&nbsp;&nbsp; <a href="javascript:void(0);" id="next-video">next</a> </span>
         </div>
         <div class="content">
-          <video width="650" height="366" controls>
+          <video width="650" height="366" controls id="video-ilike">
             <source src="public/video/ilike.ogv" type="video/ogg">
             <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="642" height="360">
-            <param name="bgcolor" value="#000000" />
-            <param name="movie" value="public/video/ilike.ogv"/>
-            <param name="quality" value="high" />
-            <param name="allowFullScreen" value="true" />
-            <embed src="public/video/ilike.ogv" allowfullscreen="true" width="655" height="366" quality="high" type="application/x-shockwave-flash" ></embed>
+              <param name="bgcolor" value="#000000" />
+              <param name="movie" value="public/video/ilike.ogg"/>
+              <param name="quality" value="high" />
+              <param name="allowFullScreen" value="true" />
+              <embed src="public/video/ilike.ogg" allowfullscreen="true" width="655" height="366" quality="high" type="application/x-shockwave-flash" ></embed>
+	    </object>
+          </video>
+          <video width="650" height="366" controls id="video-iserver" style="display: none;">
+            <source src="public/video/iserver.ogv" type="video/ogg">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="642" height="360">
+              <param name="bgcolor" value="#000000" />
+              <param name="movie" value="public/video/iserver.ogg"/>
+              <param name="quality" value="high" />
+              <param name="allowFullScreen" value="true" />
+              <embed src="public/video/iserver.ogg" allowfullscreen="true" width="655" height="366" quality="high" type="application/x-shockwave-flash" ></embed>
+	    </object>
           </video>
           <!-- <div class="server-item">
           <span class="server-item-title">MySQL执行速度</span>

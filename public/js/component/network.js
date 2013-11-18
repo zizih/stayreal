@@ -18,7 +18,12 @@
     this.xmlhttp.onreadystatechange = function () {
       if(that.xmlhttp.readyState == 4) {
         if(that.xmlhttp.status == 200 || that.xmlhttp.status == 202) {
-          that.success && that.success(JSON.parse(that.xmlhttp.responseText));
+          try{
+            that.success && that.success(JSON.parse(that.xmlhttp.responseText));
+          } catch (ex) {
+            
+          }
+           that.success && that.success("OK");
         } else {
           that.err && that.err(that.xmlhttp.responseText);
         }        

@@ -24,12 +24,8 @@ public class Application extends BaseController {
         render("index.html");
     }
 
-    public void ilike() {
-        render("ilike.html");
-    }
-
     /**
-     * 首页ablum & carousel列表
+     * 返回首页ablum & carousel列表
      */
     public void fetchAlbums() {
         try {
@@ -81,18 +77,6 @@ public class Application extends BaseController {
             e.printStackTrace();
         }
         renderJSON("Insert Err");
-    }
-
-    public void insert(String name, String jack) {
-        List<Comment> comments = null;
-        try {
-            comments = CommentService.all();
-        } catch (SqlException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        renderJSON(comments);
     }
 
 }
