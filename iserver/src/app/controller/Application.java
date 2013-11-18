@@ -24,6 +24,10 @@ public class Application extends BaseController {
         render("index.html");
     }
 
+    public void ilike() {
+        render("ilike.html");
+    }
+
     /**
      * 首页ablum & carousel列表
      */

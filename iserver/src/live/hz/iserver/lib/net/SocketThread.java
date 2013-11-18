@@ -18,7 +18,7 @@ import java.net.Socket;
  * Time: 1:57 PM
  * Desc: 每接受到一个socket请求就创建一个线程，并调用controller相应的路由控制。
  */
-public class SocketThread extends Thread {
+public class SocketThread implements Runnable {
 
     private BaseController controller;
     private Socket client;
@@ -30,7 +30,6 @@ public class SocketThread extends Thread {
 
     @Override
     public void run() {
-        super.run();
         try {
             if (client == null) return;
             Header header = new Header(client.getInputStream());
@@ -55,6 +54,10 @@ public class SocketThread extends Thread {
                 renderImage(FileUtil.fileIS(uri));
                 return;
             }
+            if (uri.startsWith("/public/video")) {
+                renderVideo(FileUtil.fileIS(uri));
+                return;
+            }
             if (uri.startsWith("/public/fonts")) {
                 renderFont(FileUtil.fileIS(uri));
                 return;
@@ -70,12 +73,15 @@ public class SocketThread extends Thread {
                     return;
                 }
                 try {
-                    //匹配index路径
-                    if (uri.equals("/") && method.getName().equals("index")) {
+                    //匹配index路径 OR 其他页面请求
+                    String template = uri.length() > 5 ? uri.substring(1, uri.length() - 5) : uri;
+                    if ((uri.equals("/") && method.getName().equals("index"))
+                            || (uri.endsWith(".html") && template.equals(method.getName()))) {
                         controller.setResponOS(client.getOutputStream());
                         method.invoke(controller);
                         return;
                     }
+
                     int qIndex = uri.indexOf("?");
                     String path = uri.substring(1, qIndex == -1 ? uri.length() : qIndex);
                     if (path.equals(method.getName())) {
@@ -168,6 +174,17 @@ public class SocketThread extends Thread {
         controller.render404();
     }
 
+    private void renderVideo(InputStream is) {
+        try {
+            controller.setResponOS(client.getOutputStream());
+            controller.renderOs2Video(is);
+            return;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        controller.render404();
+    }
+
     private void renderFont(InputStream is) {
         try {
             controller.setResponOS(client.getOutputStream());
@@ -178,4 +195,5 @@ public class SocketThread extends Thread {
         }
         controller.render404();
     }
+
 }

@@ -63,6 +63,14 @@ public class BaseController {
         respon.close();
     }
 
+    public void renderOs2Video(InputStream is) {
+        respon.println("HTTP/1.1 200 OK");
+        respon.println("Content-Type:video/mpeg;charset=UTF8");
+        respon.println();
+        renderOS(is);
+        respon.close();
+    }
+
     public void renderOs2Font(InputStream is) {
         respon.println("HTTP/1.1 200 OK");
         respon.println("Content-Type:font/opentype;charset=UTF8");

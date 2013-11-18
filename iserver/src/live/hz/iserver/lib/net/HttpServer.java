@@ -5,6 +5,8 @@ import live.hz.iserver.lib.util.Log;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +17,7 @@ import java.net.Socket;
  */
 public class HttpServer extends Thread {
 
+    private ExecutorService cachePool = Executors.newCachedThreadPool();
     private ServerSocket serverSocket;
 
     public HttpServer(int port) {
@@ -32,8 +35,7 @@ public class HttpServer extends Thread {
             try {
                 Socket client = serverSocket.accept();
                 if (client != null) {
-                    SocketThread clientThread = new SocketThread(client);
-                    clientThread.start();
+                    cachePool.execute(new SocketThread(client));
                 }
             } catch (IOException e) {
                 e.printStackTrace();

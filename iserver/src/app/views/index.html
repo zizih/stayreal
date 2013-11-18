@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/index.css">
     <link rel="stylesheet" href="public/css/server.css">
-    <link rel="stylesheet" href="public/css/about.css">
-    <script src="public/js/live.hz.iserver.lib/jquery.js"></script>
-    <script src="public/js/live.hz.iserver.lib/underscore.js"></script>
-    <script src="public/js/live.hz.iserver.lib/backbone.js"></script>
+    <link rel="stylesheet" href="public/css/i.css">
+    <script src="public/js/lib/jquery.js"></script>
+    <script src="public/js/lib/underscore.js"></script>
+    <script src="public/js/lib/backbone.js"></script>
     <script src="public/js/component/network.js"></script>
     <script src="public/js/app.js"></script>
     <script src="public/js/config.js"></script>
     <script src="public/js/Router.js"></script>
     <script src="public/js/Model.js"></script>
     <script src="public/js/View.js"></script>
-    <script src="public/js/live.hz.iserver.lib/carousel.js"></script>
+    <script src="public/js/lib/carousel.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -43,7 +43,7 @@
         <div id="title">
           <h1>iCode</h1>
           <p>
-            。。。。。。。。
+            试写Web Server，通过Java Socket
           </p>
         </div>
         <div class="content">
@@ -69,10 +69,13 @@
         <div id="title">
           <h1>iDevelop</h1>
           <p>
-            。。。。。。。。。
+            信管出生的人，又想编程
           </p>
           <!-- album -->
           <div class="album"></div>
+          <div class="iserver-album">
+            <a href="javascript:void(0);" id="to-iserver-album" data-src="jsconf">切换到后台</a>
+            </div>
         </div>
         <div class="content">
           <div id="myworks" class="carousel slide" data-ride="carousel">
@@ -87,8 +90,8 @@
         </div><!-- end content -->
         <script type="text/template" id="works-item-template">
           <% for(i in work) { %>
-          <div class="item <%= work[i].isFirst ? 'active' : '' %>">
-          <img src="<%= work[i].imgUrl %>" alt="<%= work[i].imgAlt || '' %>" data-href="<%= work[i].href %>"/>
+          <div class="item <%= work[i].isfirst ? 'active' : '' %>">
+          <img src="<%= work[i].imgurl %>" alt="<%= work[i].imgalt || '' %>" data-href="<%= work[i].href %>"/>
           <div class="carousel-caption">
           <%= work[i].caption || '' %>
           </div>
@@ -102,7 +105,7 @@
         </script>
         <script type="text/template" id="works-album-template">
           <% for(i in album) %>
-          <a href="javascript:void(0);" data-tag-index="<%=album[i].tagId%>" <%= album[i].select ? 'class="select"' : ''%>><%= album[i].tagName %></a>
+          <a href="javascript:void(0);" data-tag-index="<%=album[i].tagid%>" <%= album[i].select ? 'class="select"' : ''%>><%= album[i].tagname %></a>
         </script>
       </section>
 
@@ -111,7 +114,7 @@
         <div id="title">
           <h1>iDemo</h1>
           <p>
-            试写Web Server通过Java Socket
+            和iserver交互的并不多，看来都是js了
           </p>
         </div>
         <div class="content">
