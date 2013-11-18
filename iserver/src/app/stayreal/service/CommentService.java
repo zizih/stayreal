@@ -1,7 +1,7 @@
-package iapp.stayreal.service;
+package app.stayreal.service;
 
-import iapp.model.Comment;
-import iapp.stayreal.dao.CommentDao;
+import app.model.Comment;
+import app.stayreal.dao.CommentDao;
 import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;

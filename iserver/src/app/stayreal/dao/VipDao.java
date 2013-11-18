@@ -1,6 +1,6 @@
-package iapp.stayreal.dao;
+package app.stayreal.dao;
 
-import iapp.model.Vip;
+import app.model.Vip;
 import live.hz.iserver.lib.db.BaseDao;
 import live.hz.iserver.lib.app.IDao;
 import live.hz.iserver.lib.db.iexception.SqlException;

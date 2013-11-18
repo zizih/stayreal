@@ -1,4 +1,4 @@
-package iapp.model;
+package app.model;
 
 import live.hz.iserver.lib.db.iannotation.Key;
 import live.hz.iserver.lib.db.iannotation.Table;

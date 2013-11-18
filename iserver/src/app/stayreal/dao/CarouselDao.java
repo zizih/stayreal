@@ -1,6 +1,6 @@
-package iapp.stayreal.dao;
+package app.stayreal.dao;
 
-import iapp.model.Carousel;
+import app.model.Carousel;
 import live.hz.iserver.lib.db.BaseDao;
 import live.hz.iserver.lib.db.iexception.SqlException;
 

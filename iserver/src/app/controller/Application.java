@@ -1,11 +1,11 @@
-package iapp.controller;
+package app.controller;
 
-import iapp.model.Album;
-import iapp.model.Carousel;
-import iapp.model.Comment;
-import iapp.stayreal.service.AlbumService;
-import iapp.stayreal.service.CarouselService;
-import iapp.stayreal.service.CommentService;
+import app.model.Album;
+import app.model.Carousel;
+import app.model.Comment;
+import app.stayreal.service.AlbumService;
+import app.stayreal.service.CarouselService;
+import app.stayreal.service.CommentService;
 import live.hz.iserver.lib.app.BaseController;
 import live.hz.iserver.lib.db.iexception.SqlException;
 

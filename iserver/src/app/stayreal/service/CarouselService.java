@@ -1,7 +1,7 @@
-package iapp.stayreal.service;
+package app.stayreal.service;
 
-import iapp.model.Carousel;
-import iapp.stayreal.dao.CarouselDao;
+import app.model.Carousel;
+import app.stayreal.dao.CarouselDao;
 import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;

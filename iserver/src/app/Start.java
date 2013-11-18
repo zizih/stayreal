@@ -1,4 +1,4 @@
-package iapp;
+package app;
 
 import live.hz.iserver.lib.net.HttpServer;
 import live.hz.iserver.lib.util.Conf;

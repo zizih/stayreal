@@ -1,7 +1,7 @@
-package iapp.stayreal.service;
+package app.stayreal.service;
 
-import iapp.stayreal.dao.VipDao;
-import iapp.model.Vip;
+import app.stayreal.dao.VipDao;
+import app.model.Vip;
 import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;

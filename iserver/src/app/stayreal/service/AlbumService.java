@@ -1,7 +1,7 @@
-package iapp.stayreal.service;
+package app.stayreal.service;
 
-import iapp.model.Album;
-import iapp.stayreal.dao.AlbumDao;
+import app.model.Album;
+import app.stayreal.dao.AlbumDao;
 import live.hz.iserver.lib.db.iexception.SqlException;
 
 import java.util.List;

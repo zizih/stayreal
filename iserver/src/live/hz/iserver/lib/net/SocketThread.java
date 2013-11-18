@@ -1,6 +1,6 @@
 package live.hz.iserver.lib.net;
 
-import iapp.controller.Application;
+import app.controller.Application;
 import live.hz.iserver.lib.app.BaseController;
 import live.hz.iserver.lib.util.FileUtil;
 import live.hz.iserver.lib.util.Log;
