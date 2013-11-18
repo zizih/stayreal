@@ -233,8 +233,7 @@ app.View = function() {
       'mouseout .server-item .server-item-title' : 'hidedesc',
       'click .server-item .server-item-title' : 'showop',
       'dblclick .server-item .server-item-title' : 'hideop',
-      'click #insert' : 'insert',
-      'dblclick .content video': 'video' 
+      'click #insert' : 'insert'
     },
     template : {
       //_.template($('#').html())
@@ -274,9 +273,6 @@ app.View = function() {
     show : function() {
       this.$el.show();
       return this;
-    },
-    video: function(e) {
-      window.open($(e.target).find('source').attr('src'));
     }
   });
 
