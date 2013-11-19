@@ -2,7 +2,13 @@
  auther: hezi;
  desc:写iserver测试用
 */
+DROP database IF EXISTS stayreal;
+CREATE database stayreal;
+use stayreal;
 
+/*
+ about table vip
+ */
 DROP TABLE IF EXISTS vip;
 CREATE TABLE `vip`(
   `ID` int(2) unsigned NOT NULL auto_increment,
@@ -18,6 +24,9 @@ INSERT INTO vip(`NAME`,`DESC`) values('dad','内心很强大'),
   ('aaron','吉他很厉害，唱歌很厉害，但是不教我');
 
 
+/*
+ about table comment
+ */
 DROP TABLE IF EXISTS comment;
 CREATE TABLE `comment`(
   `ID` int(2) unsigned NOT NULL auto_increment,
@@ -30,6 +39,9 @@ INSERT INTO comment(`TIME`,`CONTENT`) values('2013-11-7 22:15:23', '单线程soc
 
 
 
+/*
+ about table album
+ */
 DROP TABLE IF EXISTS album;
 CREATE TABLE `album`(
   `TAGID` int(2) unsigned NOT NULL auto_increment,
@@ -38,10 +50,13 @@ CREATE TABLE `album`(
   PRIMARY KEY (`TAGID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='测试 album切换到服务器数据';
 
-INSERT INTO album(`TAGNAME`,`SELECT`) values('美好',true),('现实',false);
+INSERT INTO album(`TAGNAME`,`SELECT`) values('美好',true),('现实',false),('hacker',false);
 
 
 
+/*
+ about table carousel
+ */
 DROP TABLE IF EXISTS carousel;
 CREATE TABLE `carousel`(
   `ID` int(2) unsigned NOT NULL auto_increment,
@@ -57,4 +72,7 @@ CREATE TABLE `carousel`(
 INSERT INTO carousel(`ALBUMID`,`ISFIRST`,`IMGURL`,`CAPTION`) values(1,true,'./public/images/reality.png','经济学和管理学都会'),
 (1,false,'./public/images/reality.JPG','父亲还在我身边'),
 (2,true,'./public/images/dream00.jpg','地球环境都这样'),
-(2,false,'./public/images/dream01.jpg','再回到这里');
+(2,false,'./public/images/dream01.jpg','再回到这里'),
+(3,true,'./public/images/hacker01.JPG','测试用'),
+(3,false,'./public/images/hacker02.JPG','等会就删除');
+
