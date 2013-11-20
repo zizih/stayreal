@@ -148,6 +148,7 @@ section #title p {
 
 #server-show {
   color: #454545;
+  cursor: pointer;
 }
 
 #server-show:hover {

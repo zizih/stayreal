@@ -6,7 +6,7 @@ app.View = function() {
     events : {
       'keypress #comment' : 'edit',
       'keyup input' : 'unedit',
-      'click #to-demo' : 'todemo'
+      'click #server-show' : 'todemo'
     },
     initialize : function() {
       try {
