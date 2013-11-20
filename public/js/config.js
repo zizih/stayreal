@@ -95,31 +95,36 @@ app.config = {
     ],
     hope: [
       {
-        isfirst: true,
+      	isfirst: true,
+        imgurl: './public/images/hope17.jpg',
+        imgalt: '1',
+        caption: '是个经济学家、高级管理人才，还能写MIS，然后预测下个金融危机，开个公司自己管理生产运作，又做个技术总监，研发个类xx OS。—— 整个就是标准的信息管理与信息系统专业期望的全才'
+      },
+      {
         imgurl: './public/images/hope01.JPG',
         imgalt: '1',
         href: 'https://plus.google.com/photos/114920001331857622210/albums/5841418929094126033',
-        caption: '不会孤立我。'
+        caption: '想跟着学编程的时候，不会被孤立。'
       },
       {
         imgurl: './public/images/hope05.JPG',
         imgalt: '1',
-        caption: '不被边缘化。'
-      },
-      {
-        imgurl: './public/images/reality.png',
-        imgalt: '1',
-        caption: '不用逃经济和管理。'
+        caption: '不会被边缘化。'
       },
       {
         imgurl: './public/images/hope02.JPG',
         imgalt: '1',
-        caption: '一心编程，背影好看些。'
+        caption: '入迷的时候背影不这么脏、乱。'
       },
       {
         imgurl: './public/images/hope03.jpg',
         imgalt: '1',
-        caption: '上台前注意形象。'
+        caption: '好不容易上一次台，注意点形象。'
+      },
+      {
+        imgurl: './public/images/hope15.jpg',
+        imgalt: '1',
+        caption: '永远在最可爱的角度被拍。'
       },
       {
         imgurl: './public/images/hope.jpg',
@@ -129,47 +134,47 @@ app.config = {
       {
         imgurl: './public/images/hope04.JPG',
         imgalt: '1',
-        caption: '不会营养不良。'
+        caption: '不会营养不良状。'
       },
       {
         imgurl: './public/images/hope07.jpg',
         imgalt: '1',
-        caption: '有美丽回眸，长发飘飘。。'
+        caption: '像女生一样有美丽回眸，长发飘飘。。'
       },
       {
         imgurl: './public/images/hope08.jpg',
         imgalt: '1',
-        caption: '有女神的大智慧。'
+        caption: '穿个裙子也能像个女神。'
       },
       {
         imgurl: './public/images/hope06.jpg',
         imgalt: '1',
-        caption: '4个，5个。。数不清的朋友。'
+        caption: '有数不清的朋友，4个，5个。。'
       },
       {
         imgurl: './public/images/hope13.png',
         imgalt: '1',
-        caption: '有永远的闺蜜。'
+        caption: '有永远的闺蜜，在最失落和最幸福的时候都不离不弃。'
       },
       {
         imgurl: './public/images/hope14.png',
         imgalt: '1',
-        caption: '有同伴同行,有同伴留念。'
+        caption: '去哪都有同伴同行，互相保护和陪伴，<br>互相定格纪念一起游玩的快乐。'
       },
       {
         imgurl: './public/images/hope10.jpg',
         imgalt: '1',
-        caption: '技术牛人，控制2个，3个屏幕'
+        caption: '技术牛人算法很厉害，平铺3个以上屏幕，是实验室最强悍的女生。'
       },
       {
         imgurl: './public/images/hope11.jpg',
         imgalt: '1',
-        caption: '吉他很厉害。'
+        caption: '吉他很厉害，还能飙海豚音，唱个《浏览未来》拿个名次。'
       },
       {
         imgurl: './public/images/hope12.jpg',
         imgalt: '1',
-        caption: 'To be a man and a lady.'
+        caption: '拥有男人的强大、女人的细腻、萝莉的外表、老人的智慧，<br>玩得了CS，写得了OS'
       }
     ]
   },
