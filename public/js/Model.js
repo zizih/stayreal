@@ -70,6 +70,7 @@ app.Model = function () {
         return this.get('work').length;
       }
     }),
+    
     AblumModel: Backbone.Model.extend({
       defaults: function() {
         return {
@@ -79,6 +80,16 @@ app.Model = function () {
       getSize: function () {
         return this.get('album').length;
       }
+    }),
+    
+    PostsModel: Backbone.Model.extend({
+    	defaults: function() {
+    		return {
+    			title: '',
+    			desc: '',
+    			posts: {} 
+    		}
+    	}
     })
     
   }

@@ -294,11 +294,28 @@ app.View = function() {
       }, options.timeout || this.timeout);
     }
   });
+  
+  var PostView = Backbone.View.extend({
+  	el: $('#page-posts'),
+  	initialize: function(){
+  		
+  	},
+  	template: {
+  	  page: _.template($('#post-page-template').html()),
+  	},
+  	show: function() {
+  		this.$el.html(this.template.page(
+  			this.model.toJSON()
+  		))
+  		this.$el.show();
+  	}
+  });
 
   return {
     IndexView : IndexView,
     IView : IView,
-    ServerView : ServerView
+    ServerView : ServerView,
+    PostView: PostView
   }
 
 }

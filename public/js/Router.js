@@ -3,7 +3,8 @@ app.Router = Backbone.Router.extend({
   routes: {
     'index': 'index',
     'i': 'i',
-    'server': 'server'
+    'server': 'server',
+    'posts': 'posts'
   },
   
   initialize: function (){
@@ -46,6 +47,18 @@ app.Router = Backbone.Router.extend({
     this.hideAll();
     this.navigate('#server');
     this.views.serverView = new app.constr.views.ServerView().show();
+  },
+  
+  posts: function () {
+  	this.hideAll();
+  	this.navigate('#posts');
+  	this.views.postView = new app.constr.views.PostView({
+  		model: new app.constr.models.PostsModel({
+  			title: app.config.post.title,
+  			desc: app.config.post.desc,
+  			posts: app.config.post.posts
+  		}) 
+  	}).show();
   },
   
   hideAll: function () {
