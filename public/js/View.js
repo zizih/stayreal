@@ -306,16 +306,27 @@ app.View = function() {
   	show: function() {
   		this.$el.html(this.template.page(
   			this.model.toJSON()
-  		))
-  		this.$el.show();
+  		)).show();
   	}
+  });
+  
+  var WishView = Backbone.View.extend({
+    el: $('#page-wish'),
+    initialize: function() {
+      
+    },
+    template: _.template($('#wish-template').html()),
+    show: function() {
+      this.$el.html(this.template(this.model.toJSON())).show();
+    }
   });
 
   return {
     IndexView : IndexView,
     IView : IView,
     ServerView : ServerView,
-    PostView: PostView
+    PostView: PostView,
+    WishView: WishView
   }
 
 }

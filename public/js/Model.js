@@ -90,6 +90,16 @@ app.Model = function () {
     			posts: {} 
     		}
     	}
+    }),
+    
+    WishModel: Backbone.Model.extend({
+      defaults: function() {
+        return {
+          title: '',
+          desc: '',
+          post:'' 
+        }
+      }
     })
     
   }

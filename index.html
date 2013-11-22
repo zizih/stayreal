@@ -137,52 +137,6 @@
 						<embed src="public/video/iserver.ogg" allowfullscreen="true" width="655" height="366" quality="high" type="application/x-shockwave-flash" ></embed>
 						</object>
 					</video>
-					<!-- <div class="server-item">
-					<span class="server-item-title">MySQL执行速度</span>
-					<div class="server-item-desc">
-					。。。。。。。。。。
-					</div>
-					<div class="server-item-op">
-					<span>选择一种数据库：<a>mysql</a><a>derby</a><a>moogoDB</a></span>
-					<span>
-					<input type="number" name="insert">
-					<a id="insert">insert</a></span>
-					<span>
-					<input type="number" name="select">
-					<a>select</a></span>
-					<span>
-					<input type="number" name="delete">
-					<a>delete</a></span>
-					</div>
-					</div>
-					<div class="server-item">
-					<span class="server-item-title">。。。。。</span>
-					<div class="server-item-desc">
-					通过java后台，调用python程序网络抓图
-					</div>
-					<div class="server-item-op">
-					<span>输入网站域名：
-					<input type="text">
-					&nbsp;<a>抓取</a></span>
-					<span></span>
-					</div>
-					</div>
-					<div class="server-item">
-					<span class="server-item-title">墓地。。。。</span>
-					<div class="server-item-desc">
-					很无聊地到了最后一关，不要以为有什么好结果
-					</div>
-					<div class="server-item-op">
-					<div></div>
-					<span>第一关： 猜测请求参数 >> 返回值包含锁的坐标 >> 点击锁的位置出现密码输入框 >> 请求进入</span>
-					<div class="game-one">
-					<div class="game-one-pic"></div>
-					URI:
-					<input type="text">
-					<a>获取数据</a>
-					</div>
-					</div>
-					</div> -->
 				</div>
 			</section>
 
@@ -204,6 +158,18 @@
 				<% } %>
 				</div>
 			  </script>
+			</section>
+			
+			<section id="page-wish">
+			  <script type="text/template" id="wish-template">
+  				<div id="title">
+  					<h1><%= title %></h1>
+  					<h2><%= desc %></h2>
+  				</div>
+  				<div class="content" style="color: #aaa;">
+  				  <%= post %>
+  				</div>
+			  </script>				
 			</section>
 
 		</div><!-- end wrapper -->

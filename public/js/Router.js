@@ -4,7 +4,8 @@ app.Router = Backbone.Router.extend({
     'index': 'index',
     'i': 'i',
     'server': 'server',
-    'posts': 'posts'
+    'posts': 'posts',
+    'wish': 'wish'
   },
   
   initialize: function (){
@@ -59,6 +60,14 @@ app.Router = Backbone.Router.extend({
   			posts: app.config.post.posts
   		}) 
   	}).show();
+  },
+  
+  wish: function (){
+    this.hideAll();
+    this.navigate('#wish');
+    this.views.wish = new app.constr.views.WishView({
+      model: new app.constr.models.WishModel(app.config.wish)
+    }).show();
   },
   
   hideAll: function () {
