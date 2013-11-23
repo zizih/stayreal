@@ -305,7 +305,7 @@ app.View = function() {
   	  persecute: _.template($('#persecute-template').html())
   	},
   	show: function() {
-  		this.$el.html(this.template.persecute(
+  		this.$el.html(this.template.page(
   			this.model.toJSON()
   		)).show();
   	}
