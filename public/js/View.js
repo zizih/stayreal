@@ -301,10 +301,11 @@ app.View = function() {
   		
   	},
   	template: {
-  	  page: _.template($('#post-page-template').html()),
+  	  page: _.template($('#post-template').html()),
+  	  persecute: _.template($('#persecute-template').html())
   	},
   	show: function() {
-  		this.$el.html(this.template.page(
+  		this.$el.html(this.template.persecute(
   			this.model.toJSON()
   		)).show();
   	}
