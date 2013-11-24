@@ -61,7 +61,7 @@
 				<div id="title">
 					<h1>iDevelop</h1>
 					<p>
-						信息管理与信息系统的同学，又想编程&nbsp;&nbsp;<a href="#posts" style="font-size:13px;">更多心历路程</a>
+						信息管理与信息系统的同学，又想编程&nbsp;&nbsp;<a href="#posts" class="font-small">更多</a>
 					</p>
 					<!-- album -->
 					<div class="album"></div>
@@ -148,20 +148,23 @@
           </div>
         </script>   
 			  <script type="text/template" id="post-template">
-				<div id="title">
-					<h1><%= title %></h1>
-					<p><%= desc %></p>
-				</div>
-				<div class="content" style="color: #aaa;">
-				<% for (i in posts) { %>
-  				  <div style="text-align: left;">
-				  	<h3><%= posts[i].time %></h3>
-				  	<p>
-				  	  <%= posts[i].content %>
-				  	</p>
-				  </div>				  
-				<% } %>
-				</div>
+  				<div id="title">
+  					<h1>
+  					  <%= title %> &nbsp;
+  					  <a href="javascript:void(0);" class="font-small" id="post-switch"><%= tag %></a>
+  					  </h1>
+  					<p><%= desc %></p>
+  				</div>
+  				<div class="content" style="color: #aaa;">
+  				<% for (i in posts) { %>
+    				  <div style="text-align: left;">
+  				  	<h3><%= posts[i].time || posts[i].q %></h3>
+  				  	<p>
+  				  	  <%= posts[i].content || posts[i].a %>
+  				  	</p>
+  				  </div>				  
+  				<% } %>
+  				</div>
 			  </script>
 			</section>
 			

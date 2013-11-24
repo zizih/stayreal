@@ -300,13 +300,28 @@ app.View = function() {
   	initialize: function(){
   		
   	},
+  	events: {
+  	  'click #post-switch': 'postswitch'
+  	},
   	template: {
   	  page: _.template($('#post-template').html()),
   	  persecute: _.template($('#persecute-template').html())
   	},
+  	postswitch: function(e) {
+  	  var $target = $(e.target),
+  	    tag = $target.html(); 
+  	  this.$el.html(this.template.page(
+        tag === '心路' ? this.model.summary.toJSON() : this.model.heart.toJSON()
+      )).show();
+      $target.html(tag);
+      var that = this;
+      $('#post-switch').on('click', function (e) {
+        that.postswitch(e);
+      });
+  	}, 
   	show: function() {
   		this.$el.html(this.template.page(
-  			this.model.toJSON()
+  			this.model.summary.toJSON()
   		)).show();
   	}
   });

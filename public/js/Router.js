@@ -54,11 +54,10 @@ app.Router = Backbone.Router.extend({
   	this.hideAll();
   	this.navigate('#posts');
   	this.views.postView = new app.constr.views.PostView({
-  		model: new app.constr.models.PostsModel({
-  			title: app.config.post.title,
-  			desc: app.config.post.desc,
-  			posts: app.config.post.posts
-  		}) 
+  		model: {
+  		  heart: new app.constr.models.PostsModel(app.config.heart),
+    		summary: new app.constr.models.PostsModel(app.config.summary)
+    	} 
   	}).show();
   },
   
