@@ -102,7 +102,7 @@ app.View = function() {
       item0.html('home');
       item0.attr('href', '#index');
       //
-      this.defaultAblum = 2;
+      this.defaultAblum = 3;
       this.jsWorks = this.model.works;
       this.jsAblums = this.model.albums;
       this.workModel = this.model.works[this.defaultAblum];
@@ -160,7 +160,7 @@ app.View = function() {
               for(i in data.carousels) {
                 carouselArr[i] = new app.constr.models.WorksModel({
                   work: data.carousels[i]
-                }); 
+                });
               }
               that.model.works = carouselArr;
               that.workView.resetModel(that.model.works[0]).render();
@@ -183,7 +183,7 @@ app.View = function() {
         left : 500 + 'px',
         timeout : 2000,
         firstContent : '没有可请求的后台吖 ～ ~\n' + err,
-      }); 
+      });
     }
   });
 
@@ -294,11 +294,11 @@ app.View = function() {
       }, options.timeout || this.timeout);
     }
   });
-  
+
   var PostView = Backbone.View.extend({
   	el: $('#page-posts'),
   	initialize: function(){
-  		
+
   	},
   	events: {
   	  'click #post-switch': 'postswitch'
@@ -309,27 +309,25 @@ app.View = function() {
   	},
   	postswitch: function(e) {
   	  var $target = $(e.target),
-  	    tag = $target.html(); 
-  	  this.$el.html(this.template.page(
-        tag === '心路' ? this.model.summary.toJSON() : this.model.heart.toJSON()
-      )).show();
+  	    tag = $target.html();
+  	  this.$el.html(this.template.page(this.model[tag] ? this.model[tag].toJSON() : "")).show();
       $target.html(tag);
       var that = this;
       $('#post-switch').on('click', function (e) {
         that.postswitch(e);
       });
-  	}, 
+  	},
   	show: function() {
   		this.$el.html(this.template.page(
-  			this.model.summary.toJSON()
+  			this.model.history.toJSON()
   		)).show();
   	}
   });
-  
+
   var WishView = Backbone.View.extend({
     el: $('#page-wish'),
     initialize: function() {
-      
+
     },
     template: _.template($('#wish-template').html()),
     show: function() {

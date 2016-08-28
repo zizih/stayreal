@@ -94,92 +94,50 @@ app.config = {
       {
         imgurl: './public/images/intern06.jpg',
         imgalt: '6',
-        caption: '留下慢慢记忆的位置。'
+        caption: '留下满满记忆的位置'
       }
     ],
     hope: [
       {
-        imgurl: './public/images/hope01.JPG',
-        imgalt: '1',
-        href: 'https://plus.google.com/photos/114920001331857622210/albums/5841418929094126033',
-        caption: '想跟着学编程的时候，不会被孤立。'
-      },
-      {
-        imgurl: './public/images/hope05.JPG',
-        imgalt: '1',
-        caption: '不会被边缘化。'
-      },
-      {
-        imgurl: './public/images/hope02.JPG',
-        imgalt: '1',
-        caption: '入迷的时候背影不这么脏、乱。'
-      },
-      {
-        imgurl: './public/images/hope03.jpg',
-        imgalt: '1',
-        caption: '上台，不要那么猥琐。'
-      },
-      {
-        imgurl: './public/images/hope15.jpg',
-        imgalt: '1',
-        caption: '永远最可爱。'
-      },
-      {
-        imgurl: './public/images/hope.jpg',
-        imgalt: '1',
-        caption: '吃的都长在该肥的地方。'
-      },
-      {
-        imgurl: './public/images/hope04.JPG',
-        imgalt: '1',
-        caption: '营养不良状。'
-      },
-      {
-        imgurl: './public/images/hope07.jpg',
-        imgalt: '1',
-        caption: '像女生一样有美丽回眸，长发飘飘。。'
-      },
-      {
-        imgurl: './public/images/hope08.jpg',
-        imgalt: '1',
-        caption: '穿个裙子也能像个女神。'
-      },
-      {
-        imgurl: './public/images/hope06.jpg',
-        imgalt: '1',
-        caption: '有数不清的朋友，4个，5个。。'
-      },
-      {
-        imgurl: './public/images/hope13.png',
-        imgalt: '1',
-        caption: '有永远的闺蜜，在最失落和最幸福的时候都不离不弃。'
-      },
-      {
-        imgurl: './public/images/hope14.png',
-        imgalt: '1',
-        caption: '去哪都有同伴同行，互相保护和陪伴，<br>互相定格纪念一起游玩的快乐。'
-      },
-      {
+        isfirst: true,
         imgurl: './public/images/hope10.jpg',
         imgalt: '1',
-        caption: '技术牛人算法很厉害，平铺3个以上屏幕，是实验室最强悍的女生。'
+        caption: '毕业那年，实验室彪悍的青春。'
       },
       {
-        imgurl: './public/images/hope11.jpg',
+        imgurl: './public/images/dayAndNight.png',
         imgalt: '1',
-        caption: '吉他很厉害，还能飙海豚音，唱个《浏览未来》拿个名次。'
+        caption: '工作了，日夜不息地写代码...'
       },
       {
-        imgurl: './public/images/hope12.jpg',
+        imgurl: './public/images/selfPhoto.png',
         imgalt: '1',
-        caption: '拥有男人的强大、女人的细腻、萝莉的外表、老人的智慧，<br>玩得了CS，写得了OS'
+        caption: '每周四凌晨都演练, <br>20个uid在杭州和深圳的数据中心容灾，<br>此时一定没有人，安心地在电梯内自恋。'
       },
       {
-      	isfirst: true,
-        imgurl: './public/images/hope17.jpg',
+        imgurl: './public/images/honor.jpeg',
         imgalt: '1',
-        caption: '做经济学家、高级管理人才，还能写MIS，然后预测下个金融危机，开个公司自己管理生产运作，又做个技术总监，研发个类xx OS。'
-          + '—— 标准的信息管理与信息系统专业期望的全才'
+        caption: '得到过荣誉'
+      },
+      {
+        imgurl: './public/images/cry.png',
+        imgalt: '1',
+        caption: '没有朋友, <br>不敢正视黑色镜子里那一小粒自己'
+      },
+      {
+        imgurl: './public/images/distance.png',
+        imgalt: '1',
+        caption: '和台风的距离，就是和朋友的距离'
+      },
+      {
+        imgurl: './public/images/codingAndPlaying.jpeg',
+        imgalt: '1',
+        caption: '孤单地编程'
+      },
+      {
+        imgurl: './public/images/beauty.png',
+        imgalt: '1',
+        caption: '一个人打球'
       }
     ]
   },
@@ -191,16 +149,16 @@ app.config = {
     },
     {
       tagid: 2,
-      tagname: '2013移动开发者',
-      select: true
+      tagname: '2013移动开发者'
     },
     {
       tagid: 3,
-      tagname: 'UC暑假'
+      tagname: 'UC暑假实习'
     },
     {
       tagid: 4,
-      tagname: '梦想与现实'
+      tagname: '2014~now阿里巴巴',
+      select: true
     }
   ],
   heart: {
@@ -325,6 +283,34 @@ app.config = {
         a: '喜欢听歌也有认识到唱得很烂，参加比赛的想法是想要搞笑，实验室的朋友很无聊，就陪我熬夜hight歌录歌然后由剪辑的同学把mp3发给公司参赛邮箱，'
           + '然而我忘了在实习期间一开始就以安静的形象出现，结果难听的歌声一点也不好笑。'
       }
+    ]
+  },
+  history: {
+    tag: 'history',
+    title: '人生轨迹',
+    desc: '喜欢编程、安全相关，保安、助理、体力运动',
+    posts: [
+      {
+      	time: '1991年12月15日 ~ 2007年06月25日',
+      	content: '广东翁源： 童年，小学，初中'
+        + '<br>家庭住址：广东翁源'
+      },
+      {
+      	time: '2007年09月 ~ 2010年6月',
+      	content: '广东韶关： 田家炳高中部，理科'
+        + '<br>家庭住址：广东惠州'
+      },
+      {
+      	time: '2010年09月 ~ 2014年5月',
+      	content: '广东广州： 华南农业大学，信息学院，信息管理与信息系统专业'
+        + '<br>广东广州： UC优视科技实习生，Java和前端开发工程师'
+        + '<br>家庭住址：广东惠州'
+      },
+      {
+      	time: '2014年07月 ~ 至今',
+      	content: '浙江杭州：蚂蚁金服（原阿里巴巴集团旗下 支付宝），中间件研发工程师'
+        + '<br>家庭住址：广东惠州'
+      },
     ]
   },
   wish: {

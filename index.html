@@ -24,6 +24,7 @@
 	<body>
 		<div id="header">
 			<nav>
+				<div class='logo'>何梓同学</div>
 				<li>
 					<a href="#i" id="header-nav-item0">i</a>
 				</li>
@@ -83,7 +84,7 @@
 				<script type="text/template" id="works-item-template">
 					<% for(i in work) { %>
 					<div class="item <%= work[i].isfirst ? 'active' : '' %>">
-					<img src="<%= work[i].imgurl %>" alt="<%= work[i].imgalt || '' %>" data-href="<%= work[i].href %>"/>
+					<img style="width: 650px; height: 435px;" src="<%= work[i].imgurl %>" alt="<%= work[i].imgalt || '' %>" data-href="<%= work[i].href %>"/>
 					<div class="carousel-caption">
 					<%= work[i].caption || '' %>
 					</div>
@@ -151,7 +152,7 @@
   				<div id="title">
   					<h1>
   					  <%= title %> &nbsp;
-  					  <a href="javascript:void(0);" class="font-small" id="post-switch"><%= tag %></a>
+  					  <a href="#i" class="font-small" id="post-switch"><%= tag %></a>
   					  </h1>
   					<p><%= desc %></p>
   				</div>

@@ -1,23 +1,24 @@
 app.Router = Backbone.Router.extend({
-  
+
   routes: {
     'index': 'index',
     'i': 'i',
     'server': 'server',
     'posts': 'posts',
+    'history': 'history',
     'wish': 'wish'
   },
-  
+
   initialize: function (){
     this.views = app.views;
   },
-  
+
   index: function () {
     this.hideAll();
     this.navigate('#index');
     this.views.indexView.show();
   },
-  
+
   i: function () {
     this.hideAll();
     this.navigate('#i');
@@ -40,27 +41,28 @@ app.Router = Backbone.Router.extend({
         albums: new app.constr.models.AblumModel({
           album: app.config.ablum
         })
-      }  
+      }
     }).show();
   },
-  
+
   server: function () {
     this.hideAll();
     this.navigate('#server');
     this.views.serverView = new app.constr.views.ServerView().show();
   },
-  
+
   posts: function () {
   	this.hideAll();
   	this.navigate('#posts');
   	this.views.postView = new app.constr.views.PostView({
   		model: {
-  		  heart: new app.constr.models.PostsModel(app.config.heart),
+  		  history: new app.constr.models.PostsModel(app.config.history),
+    		heart: new app.constr.models.PostsModel(app.config.heart),
     		summary: new app.constr.models.PostsModel(app.config.summary)
-    	} 
+    	}
   	}).show();
   },
-  
+
   wish: function (){
     this.hideAll();
     this.navigate('#wish');
@@ -68,9 +70,9 @@ app.Router = Backbone.Router.extend({
       model: new app.constr.models.WishModel(app.config.wish)
     }).show();
   },
-  
+
   hideAll: function () {
     $('section').hide();
   }
-  
+
 });

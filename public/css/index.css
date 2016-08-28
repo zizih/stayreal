@@ -80,6 +80,13 @@
   margin-left: 6px;
 }
 
+#header nav .logo {
+  float: left;
+  line-height: 50px;
+  text-shadow:#000 5px 5px 5px;
+  text-decoration: underline;
+}
+
 /**
  * 	wrapper
  */
