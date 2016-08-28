@@ -107,37 +107,32 @@ app.config = {
       {
         imgurl: './public/images/dayAndNight.png',
         imgalt: '1',
-        caption: '工作了，日夜不息地写代码...'
+        caption: '工作了，日夜不息地写代码，看监控...'
       },
       {
         imgurl: './public/images/selfPhoto.png',
         imgalt: '1',
-        caption: '每周四凌晨都演练, <br>20个uid在杭州和深圳的数据中心容灾，<br>此时一定没有人，安心地在电梯内自恋。'
+        caption: '每周四凌晨都演练, <br>20个uid在杭州和深圳的数据中心之间容灾切换，<br>此时一定没有人，安心地在电梯内自恋。'
       },
       {
         imgurl: './public/images/honor.jpeg',
         imgalt: '1',
-        caption: '得到过荣誉'
+        caption: '最疯狂的2015年，得到过荣誉'
       },
       {
         imgurl: './public/images/cry.png',
         imgalt: '1',
-        caption: '没有朋友, <br>不敢正视黑色镜子里那一小粒自己'
+        caption: '但想念朋友, <br>到不敢正视黑色镜子里那一小粒自己'
       },
       {
         imgurl: './public/images/distance.png',
         imgalt: '1',
-        caption: '和台风的距离，就是和朋友的距离'
-      },
-      {
-        imgurl: './public/images/codingAndPlaying.jpeg',
-        imgalt: '1',
-        caption: '孤单地编程'
+        caption: '和台风的距离，就是和你们的距离，我想念你们'
       },
       {
         imgurl: './public/images/beauty.png',
         imgalt: '1',
-        caption: '一个人打球'
+        caption: '在杭州只能一个人打球，你们不来，我回来找你们啊哈哈'
       }
     ]
   },
@@ -308,7 +303,7 @@ app.config = {
       },
       {
       	time: '2014年07月 ~ 至今',
-      	content: '浙江杭州：蚂蚁金服（原阿里巴巴集团旗下 支付宝），中间件研发工程师'
+      	content: '浙江杭州：蚂蚁金服（阿里巴巴集团旗下支付宝），中间件研发工程师， base HangZhou'
         + '<br>家庭住址：广东惠州'
       },
     ]
